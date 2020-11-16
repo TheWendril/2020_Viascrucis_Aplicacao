@@ -13,13 +13,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Início</a>
+                    <a :class="{'nav-link': nav_link, 'active': active_element[0]}" @click="active_switch(0)" href="index.html">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">Projeto</a>
+                    <a :class="{'nav-link': nav_link, 'active': active_element[1]}" @click="active_switch(1)">Projeto</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contato.html">Contato</a>
+                <li class="nav-item" @click="contact_click">
+                    <a class="nav-link" :class="{'nav-link': nav_link, 'active': active_element[2]}" @click="active_switch(2)"> Contato </a>
                 </li>            
                 </ul>
             </div>
@@ -33,6 +33,29 @@
 
 export default {
    
+   data(){
+       return{
+           active_element: [true, false, false],
+           nav_link : true
+       }
+   },
+
+   methods: {
+       contact_click: function(){
+           console.log('EVENTO EMITIDO')
+           this.$emit('contact_click_event')
+       },
+
+       active_switch: function(index){
+            
+            for(var i = 0; i < 3; i++)
+                this.active_element[i] = false
+                
+            console.log(index)
+            this.active_element[index] = true
+
+       }
+   }
 }
 
 </script>

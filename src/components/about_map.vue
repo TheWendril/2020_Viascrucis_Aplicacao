@@ -13,7 +13,7 @@
             <div class="col-sm-5 text-center my-auto map-text-info">
 
                 <p class="text-justify">Um mapa (do termo latino mappa) é uma representação visual de uma região. São, geralmente, representações bidimensionais de um espaço tridimensional. A ciência da concepção e fabricação de mapas designa-se cartografia. </p>
-                <button class="btn btn-outline-primary shadow">Ver Mapas</button>
+                <button class="btn btn-outline-primary shadow mb-4">Ver Mapas</button>
 
             </div>
 

@@ -1,6 +1,6 @@
 <template>
     
-    <div id="banner" class="container-flex position-relative overflow-hidden p-3 p-md-5  text-center">
+    <div id="banner" class="container-fluid position-relative overflow-hidden p-3 md-5 text-center">
         <div class="row h-100">
             <div class="col-md-5 p-lg-5 mx-auto my-auto">    
                 <h1 class="display-4 font-weight-normal text-light">Vias Crucis</h1>
@@ -23,6 +23,7 @@ export default {
 #banner{
      background-image: url('../assets/bg-masthead.png');
      background-position: center;
+     background-repeat: no-repeat;
      height: 650px;    
 
 }
