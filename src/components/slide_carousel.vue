@@ -1,8 +1,8 @@
 <template>
-<div class="mb-5 container-fluid border-bottom">
+<div class="mb-5 container-fluid">
     <div class="container carousel mt-5 mb-5 ">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner shadow">
+                <div class="carousel-inner shadow ">
                     <div class="carousel-item active">
                     <img class="d-block w-100" src="../assets/slide-1.png" alt="First slide">
                     </div>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="footer ">
+        <footer class="footer p-4">
             <div class="container">
             <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -100,7 +100,6 @@ export default {
 
 footer{
      background-color: #33383c;
-     padding:10px 0px;
      bottom: 0;
      width: 100%;
 }	       

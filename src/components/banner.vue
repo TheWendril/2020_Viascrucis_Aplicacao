@@ -5,7 +5,7 @@
             <div class="col-md-5 p-lg-5 mx-auto my-auto">    
                 <h1 class="display-4 font-weight-normal text-light">Vias Crucis</h1>
                 <p class="lead font-weight-normal text-light">Caminhos da Saudade</p>
-                <a class="btn btn-outline-light" href="#">Enviar história</a>
+                <a class="btn btn-outline-light" @click="open_send_history">Enviar história</a>
             </div>
         </div>
     </div>
@@ -14,6 +14,12 @@
 
 <script>
 export default {
+
+    methods:{
+        open_send_history: function(){
+            this.$emit('send_history_click')
+        }
+    }
 
 }
 </script>

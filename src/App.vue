@@ -1,21 +1,24 @@
 <template>
 
   <div id="app" class="bg-light">  
-    <navbar @contact_click_event="contact_click" />
 
-    <div class="content" v-if="!show_contact_form">
-      <banner/>
+    <navbar @navbar_click="navbar_item_click($event)"/>
+    <div class="content" v-if="!hidden_main_page">
+      <banner @send_history_click="open_send_history"/>
       <about/>
       <about_map/>
       <slide_carousel/>
       <footer_form/>
     </div>
     
-    <div class="contact_page bg-white" v-if="show_contact_form">
-
-      <contact_form class="contact-form"/>
-
+    <div v-if="show_contact_form">
+      <contact_form/>
     </div>
+
+    <div v-if="show_send_history">
+      <send_history/>
+    </div>
+
 
   </div>
 
@@ -30,6 +33,7 @@ import about_map from './components/about_map.vue'
 import footer_form from './components/footer_form'
 import slide_carousel from './components/slide_carousel.vue'
 import contact_form from './components/contact_form'
+import send_history from './components/send_history'
 
 export default {
   
@@ -42,21 +46,56 @@ export default {
     about_map,
     footer_form,
     slide_carousel,
-    contact_form
+    contact_form,
+    send_history
   },
 
   data(){
     return {
-      show_contact_form: false
+      show_contact_form: false,
+      hidden_main_page: false,
+      show_send_history: false, 
+      navbar_control: []
     }
   },
   methods: {
 
-    contact_click: function(){
-      console.log('EVENTO RECEBIDO')
+    navbar_item_click: function($event){
+
+      this.navbar_control = $event
+      var item = this.navbar_control.indexOf(true)
+
+      if(item == 0){
+        this.hidden_main_page = false
+        this.show_contact_form = false
+        this.send_history = false
+      }
+
+      if(item == 1){
+
+        this.hidden_main_page = false
+        this.show_contact_form = false
+      }
+
+      if(item == 2){
+        this.hidden_main_page = true
+        this.show_contact_form = true
+        this.show_send_history = false
+      }
+
+      console.log(item)
+    },
+
+    swith_to_contact: function(){
       this.show_contact_form = true
+    },
+
+    open_send_history: function(){
+      this.hidden_main_page = true
+      this.show_send_history = true
+      this.show_contact_form = false
     }
-  
+
   }
 
 }
@@ -73,19 +112,9 @@ export default {
   margin-top: 24px;
 }
 
-
-.footer-contact {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   width:100%;
+html{
+  background-color: rgb(248, 249, 250);
 }
-
-.contact-form{
-  margin-top: 13%;
-}
-
-
 </style>
 
 

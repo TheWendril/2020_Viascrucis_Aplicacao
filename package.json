@@ -17,7 +17,8 @@
     "popper.js": "^1.16.1",
     "vue": "^2.6.12",
     "vue-carousel": "^0.18.0",
-    "vue-gallery-slideshow": "^1.5.2"
+    "vue-gallery-slideshow": "^1.5.2",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.8",
