@@ -2,6 +2,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <div>
+    <navbar/>
     <div class="container contact">
         <div class="row">
             <div class="col-md-3">
@@ -35,7 +36,7 @@
                     </div>
                     <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Enviar</button>
+                            <button type="submit" class="btn btn-outline-primary">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -85,9 +86,14 @@
 
 </template>
 
+
+
 <script>
+
+
 export default {
-    
+
+    components: {}
 }
 </script>
 
@@ -154,14 +160,6 @@ body{
 	.contact-form label{
 		font-weight:600;
 	}
-	.contact-form button{
-		background: #25274d;
-		color: #fff;
-		font-weight: 600;
-		width: 25%;
-	}
-	.contact-form button:focus{
-		box-shadow:none;
-	}
+	
 
 </style>

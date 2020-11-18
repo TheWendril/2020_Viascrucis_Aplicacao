@@ -2,6 +2,7 @@
 
 
     <div class="container">
+    
       <div class="text-center">
         <h2>Passo 1</h2>
         <h4>Nos conte sobre você</h4>
@@ -129,13 +130,15 @@
             <div class="row mt-3">
                 <div class="col">
                     <label for="born_city">Estado de Nascimento</label>
-                    <select class="form-control" id="born_city" required>
+                    <select class="form-control" id="born_city" @change="change_born_cities($event)" required>
+                      <option v-for="state in states" :value="state.sigla" :key="state.id" > {{state.sigla}} </option>
                     </select>
                 </div>
 
                 <div class="col">
                     <label for="born_state">Cidade de Nascimento</label>
                     <select class="form-control" id="born_state" required >
+                      <option v-for="city in born_cities" :value="city.nome" :key="city.id"> {{city.nome}} </option>
                     </select>
                 </div>
                 
@@ -145,13 +148,15 @@
                 
                 <div class="col">
                     <label for="dead_city">Estado de falecimento</label>
-                    <select class="form-control" id="dead_city" required>
+                    <select class="form-control" id="dead_city" @change="change_death_cities($event)" required>
+                      <option v-for="state in states" :value="state.sigla" :key="state.id"> {{state.sigla}} </option>
                     </select>
                 </div>
 
                 <div class="col">
                     <label for="dead_state">Cidade de falecimento</label>
                     <select class="form-control" id="dead_state" required>
+                      <option v-for="city in death_cities" :value="city.nome" :key="city.id"> {{city.nome}} </option>
                     </select>
                 </div>
                 
@@ -211,16 +216,52 @@
 
 <script>
 
+
+import Axios from 'axios'
+
 export default {
 
+    components: {},
     data(){
         return{
             states: [],
-            cities: []
+            born_cities: [],
+            death_cities: []
         }
     },
     created(){
-        console.log('pagina começou')
+        Axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/').then( res => {
+          this.states = res.data
+          var sig = this.states[0].sigla.toLowerCase()
+          
+          Axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${sig}/municipios`).then(res =>{
+            this.born_cities = res.data
+            this.death_cities = res.data
+          })
+        })
+        
+    },
+
+    methods: {
+      
+      change_born_cities: function($event){
+        
+        var sig = $event.target.value  
+        Axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${sig}/municipios`).then(res =>{
+          this.born_cities = res.data
+        })
+      },
+      
+      change_death_cities: function($event){
+        
+        var sig = $event.target.value  
+        
+        Axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${sig}/municipios`).then(res =>{
+          this.death_cities = res.data
+        })
+      },
+
+
     }
 
 }

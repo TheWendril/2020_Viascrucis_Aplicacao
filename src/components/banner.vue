@@ -13,13 +13,24 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex'
+
 export default {
 
     methods:{
+        
         open_send_history: function(){
-            this.$emit('send_history_click')
-        }
-    }
+            this.disable_all()
+            this.$router.push('/enviar-historia')
+        },
+
+        ...mapActions([
+            'disable_all'
+        ])
+    },
+
+
 
 }
 </script>

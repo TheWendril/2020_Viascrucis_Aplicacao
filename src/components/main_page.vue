@@ -1,0 +1,44 @@
+<template>
+    
+    <div>
+
+        <banner ></banner>
+        <about></about>
+        <about_map></about_map>
+        <Slide_carousel @eventTest="functionTest"/>
+        <footer_form></footer_form>
+    </div>
+
+</template>
+
+<script>
+
+import banner from './banner.vue'
+import about from './about.vue'
+import about_map from './about_map.vue'
+import footer_form from './footer_form'
+import Banner from './banner.vue'
+import Slide_carousel from './slide_carousel.vue'
+
+export default {
+
+    components:{
+        banner,
+        about,
+        about_map,
+        footer_form,
+        Banner,
+        Slide_carousel
+    },
+    methods: {
+        functionTest: function() {
+            console.log('evento chegou no banner')
+        }
+    }
+
+}
+</script>
+
+<style scoped>
+
+</style>

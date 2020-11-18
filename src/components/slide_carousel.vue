@@ -26,7 +26,7 @@
                     <span class="sr-only">Próximo</span>
                 </a>
         </div>
-        <p class="mt-5">Acesse nossa <a href="#">galeria</a> e veja as melhores fotos de sla oq</p>
+        <p class="mt-5">Acesse nossa <a class="link"  @click="go_to_gallery"> galeria </a> e veja as melhores fotos de sla oq</p>
         
     </div>
     
@@ -34,8 +34,12 @@
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex'
+
 export default {
     
+
     data(){
         return{
             showGallery: false
@@ -43,7 +47,15 @@ export default {
     },
 
     methods : {
-        
+
+        go_to_gallery: function(){
+            this.enable(1)
+            this.$router.push('/galeria')
+        },
+
+        ...mapMutations([
+            'enable'
+        ])
     }
 }
 </script>
@@ -53,4 +65,14 @@ export default {
     padding-left:5%;
     padding-right:5%;
 }
+
+.link{
+    color: rgb(53, 165, 240);
+}
+
+
+a:hover{
+    cursor: pointer;
+}
+
 </style>

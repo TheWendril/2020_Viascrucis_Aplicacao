@@ -5,18 +5,18 @@
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/vias.png" >
                 <h3 class="mt-2 text-dark">Vias</h3>
-                <p>Donec sed odio dui. Cras j felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p>Recorte de todas as rodovias percorridas pela esquipe do Vias Crucis na região Nordeste do Brasil, mais precisamente nos estados do Ceará e Pernambuco. Além disso, percorremos esses caminhos por meio de expedições, aos quais tinham como intuito de ir ao encontro dos diversos memoriais estradeiros (cruzes, capelas, capelinhas e oratórios), que se encontram levantados nas diversas vias do sertão.</p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/relatos.png" >
                 <h3 class="mt-2 text-dark">Relatos</h3>
-                <p>Donec sed odio dui. Cras j felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p>Os relatos dão conta das memorias colhidas com os moradores das residências próximas as rodovias, aos quais se disponibilizaram a narrar os acontecimentos que antecederam as construções dos memoriais estradeiros. Além disso, essas narrativas dos Chicos (as) e Franciscos (as) anunciam os perigos envoltos nas curvas das rodovias.</p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/book.png">
                 <h3 class="mt-2 text-dark">Nosso Livro</h3>
-                <p>Donec sed odio dui. Cras j felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+                <p>As narrativas de morte e de vida ao longo e às margens das rodovias são a matéria-prima deste trabalho. Principalmente no que toca às cruzes e monumentos “fincados” àbeira do asfalto, decorrentes de perdas de entes queridos em face aos desastres ocorridos nestas vias cheias de histórias, paisagens, culturas e símbolos vários de extrema relevância e complexidade.</p>
+                <p><a class="btn btn-primary" href="#" role="button">Ver mais&raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
     </div>
