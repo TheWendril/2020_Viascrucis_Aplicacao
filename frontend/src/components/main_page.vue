@@ -20,6 +20,8 @@ import footer_form from './footer_form'
 import Banner from './banner.vue'
 import Slide_carousel from './slide_carousel.vue'
 
+import { mapMutations } from 'vuex'
+
 export default {
 
     components:{
@@ -31,9 +33,12 @@ export default {
         Slide_carousel
     },
     methods: {
-        functionTest: function() {
-            console.log('evento chegou no banner')
-        }
+        ...mapMutations([
+            'enable'
+        ])
+    },
+    created(){
+        this.enable(0)
     }
 
 }

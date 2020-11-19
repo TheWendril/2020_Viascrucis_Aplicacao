@@ -216,7 +216,7 @@
 
 <script>
 
-
+import { mapMutations } from 'vuex'
 import Axios from 'axios'
 
 export default {
@@ -240,6 +240,8 @@ export default {
           })
         })
         
+        this.disable_all()
+
     },
 
     methods: {
@@ -261,6 +263,7 @@ export default {
         })
       },
 
+      ...mapMutations(['disable_all'])
 
     }
 

@@ -35,8 +35,6 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
-
 export default {
     
 
@@ -49,13 +47,9 @@ export default {
     methods : {
 
         go_to_gallery: function(){
-            this.enable(1)
             this.$router.push('/galeria')
         },
 
-        ...mapMutations([
-            'enable'
-        ])
     }
 }
 </script>

@@ -90,10 +90,19 @@
 
 <script>
 
+import {mapMutations} from  'vuex'
 
 export default {
 
-    components: {}
+    components: {},
+      methods: {
+    ...mapMutations(['enable'])
+    },
+
+    created(){
+        this.enable(2)
+    }
+
 }
 </script>
 

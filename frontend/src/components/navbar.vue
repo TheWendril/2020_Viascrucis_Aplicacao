@@ -11,13 +11,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item" @click="enable(0)">
+                <li class="nav-item">
                     <a :class="{'nav-link': nav_link, 'active': active_items[0] }" @click="go_to_main_page">Início</a>
                 </li>
-                <li class="nav-item " @click="enable(1)">
+                <li class="nav-item ">
                     <a :class="{'nav-link': nav_link, 'active': active_items[1]}" @click="go_to_gallery" >Galeria</a>
                 </li>
-                <li class="nav-item"  @click="enable(2)">
+                <li class="nav-item">
                     <a class="nav-link" :class="{'nav-link': nav_link, 'active': active_items[2]}" @click="go_to_contact"> Contato </a>
                 </li>            
                 </ul>
@@ -30,7 +30,7 @@
 
 <script>
 
-import {mapState , mapMutations} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     
@@ -78,10 +78,7 @@ export default {
             this.active_element = list
 
         },
-
-        ...mapMutations([
-            'enable'
-        ])
+        
     },
 
     computed: {

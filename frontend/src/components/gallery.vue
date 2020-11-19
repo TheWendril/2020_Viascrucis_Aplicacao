@@ -74,8 +74,18 @@
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex'
+
 export default {
-    
+
+  methods: {
+    ...mapMutations(['enable'])
+  },
+  created(){
+    this.enable(1)
+  }
+
 }
 </script>
 
