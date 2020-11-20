@@ -6,7 +6,6 @@
       <div class="text-center">
         <h2>Passo 1</h2>
         <h4>Nos conte sobre você</h4>
-        <h5>{{json_request}}</h5>
       </div>
 
     <form @submit.prevent="post_form" class="needs-validation" novalidate>
@@ -300,11 +299,15 @@ export default {
 
         if(this.validate()){
 
-          alert('Formulário Enviado')
+          
           Axios.post('http://localhost:3000/stories/', this.json_request)
+            
             .then(res => {
+              
+              alert('Formulário Enviado')
               console.log(res)
               this.$router.push('/')
+            
             })
             .catch(error => console.error('Post Error: ', error))
 

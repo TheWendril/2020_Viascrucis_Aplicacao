@@ -2,41 +2,41 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <div>
-    <navbar/>
+    
     <div class="container contact">
         <div class="row">
             <div class="col-md-3">
                 <div class="contact-info">
                     <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
                     <h2>Contato</h2>
-                    <h4>Envie-nos uma mensagem!</h4>
+                    <h5>Envie-nos uma mensagem!</h5>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="contact-form">
                     <div class="form-group">
                         <div class="col-sm-10">          
-                            <input type="text" class="form-control" id="fname" placeholder="Nome" name="fname">
+                            <input type="text" v-model="form_contact.name" :class="{'form-control': true, 'is-invalid': form_contact.name == '' && check}" id="fname" placeholder="Nome" name="fname">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10">          
-                            <input type="text" class="form-control" id="lname" placeholder="Sobrenome" name="lname">
+                            <input type="text" v-model="form_contact.lastName" :class="{'form-control': true, 'is-invalid': form_contact.lastName == '' && check}" id="lname" placeholder="Sobrenome" name="lname">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                            <input type="email" v-model="form_contact.email" :class="{'form-control': true, 'is-invalid': form_contact.email == '' && check}" id="email" placeholder="Email" name="email">
                         </div>
                     </div>
                         <div class="form-group">
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Digite sua mensagem..."></textarea>
+                            <textarea :class="{'form-control': true, 'is-invalid': form_contact.message == '' && check}" v-model="form_contact.message" rows="5" id="comment" placeholder="Digite sua mensagem..."></textarea>
                         </div>
                     </div>
                     <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                            <button type="button" @click="send_message" class="btn btn-outline-primary">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -44,46 +44,6 @@
         </div>
     </div>
 </div>
-<!-- <div>
-
-    <div class="container">
-        <form class="contact_form">
-            <div class="row">
-                <div class="col">
-                    <h4 class="text-black-50">Contato</h4>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6 col-sm-12 mt-3">
-                    <input type="text" class="form-control shadow-sm" id="nome_form" placeholder="Nome" required>
-                    </div>
-                <div class="col-md-6 col-sm-12 mt-3">
-                    <input type="text" class="form-control shadow-sm" id="sobrenome_form" placeholder="Sobrenome" required>     
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="email" class="form-control shadow-sm" id="input_email" aria-describedby="email_contact" placeholder="Seu email">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <textarea class="form-control shadow-sm" id="validationTextarea" placeholder="Digite sua mensagem..." required></textarea>
-
-                </div>
-            </div>
-            <div class="row mt-3 mb-5">
-                <div class="col">
-                    <button class="btn btn-outline-info shadow-sm">Enviar</button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-</div> -->
-
 </template>
 
 
@@ -91,52 +51,72 @@
 <script>
 
 import {mapMutations} from  'vuex'
+import Axios from 'axios'
 
 export default {
 
-    components: {},
-      methods: {
-    ...mapMutations(['enable'])
+    data(){
+        return{
+
+            form_contact : {},
+            check: false
+
+        }
     },
 
+    components: {},
+
     created(){
+        this.form_contact = {
+            name: '',
+            lastName: '',
+            email: '',
+            message: ''
+        }
+        this.validate()
         this.enable(2)
+    },
+    methods: {
+        
+        ...mapMutations(['enable']),
+        
+        send_message: function(){
+            
+            this.check = true
+
+            if(this.validate()){
+                Axios.post('http://localhost:3000/contact', this.form_contact).then( res => 
+                {
+                    console.log(res)
+                    alert('Mensagem Enviada com sucesso')
+                    this.$router.push('/')
+                }
+                ).catch(e => 
+                {
+                    console.log(e)
+                    alert('Erro no Envio da mensagem')
+                })
+            }
+        },
+
+        validate: function(){
+            
+            var bool = true
+
+            Object.keys(this.form_contact).forEach(item => {
+                if(this.form_contact[item] == '')
+                    bool = false
+            })
+
+            return bool
+
+        }
     }
 
 }
 </script>
 
 <style scoped>
-/*
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-.contact_form{
-    padding-left: 13vw;
-    padding-right: 13vw;
-
-}
-
-
-h4{
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  font-size: 30px;
-  text-transform: uppercase;
-}
-
-.btn-primary.custom-btn {
-  color:black;
-  background-color: white;
-  border-color: #36c3e1;
-}
-
-.custom-btn:hover{
-  transition: 0.5s;
-  color: white;
-	background-color: #36c3e1;;
-
-}
-*/
 
 body{
 		background-color: #25274d;
