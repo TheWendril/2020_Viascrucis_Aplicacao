@@ -3,7 +3,7 @@
  const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    fistName:{
+    firstName:{
         type: String,
         required: true,
         trim: true
@@ -24,7 +24,7 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    fistNameHonor:{
+    firstNameHonor:{
         type: String,
         required: true
     },

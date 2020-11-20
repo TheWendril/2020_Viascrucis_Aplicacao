@@ -12,15 +12,16 @@ exports.listStories = async (req, res) => {
 
 // create
 exports.createStory = async (req, res) => {
+  console.log(req)
   try {
     const story = new Stories({
-      fistName: req.body.fistName,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
       telefone: req.body.telefone,
       email: req.body.email,
       degreeOfKinship: req.body.degreeOfKinship,
       
-      fistNameHonor: req.body.fistNameHonor,
+      firstNameHonor: req.body.firstNameHonor,
       lastNameHonor: req.body.lastNameHonor,
       idade: req.body.idade,
       anoNascimento: req.body.anoNascimento,

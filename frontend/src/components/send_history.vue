@@ -73,7 +73,7 @@
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="firstName">Primeiro Nome</label>
-                      <input type="text" :class="{'form-control': true, 'is-invalid': json_request.fistNameHonor == '' && check}" v-model="json_request.fistNameHonor" id="firstName" placeholder="" value="" required>
+                      <input type="text" :class="{'form-control': true, 'is-invalid': json_request.firstNameHonor == '' && check}" v-model="json_request.firstNameHonor" id="firstName" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Campo obrigatório!
                       </div>
@@ -245,7 +245,7 @@ export default {
               telefone: null,
               email: '',
               degreeOfKinship: '',
-              fistNameHonor: '',
+              firstNameHonor: '',
               lastNameHonor: '',
               idade: null,
               anoNascimento: null,
@@ -302,10 +302,13 @@ export default {
 
           alert('Formulário Enviado')
           Axios.post('http://localhost:3000/stories/', this.json_request)
-            .then(res => console.log(res))
+            .then(res => {
+              console.log(res)
+              this.$router.push('/')
+            })
             .catch(error => console.error('Post Error: ', error))
 
-            setInterval(() => this.$router.push('/'), 550)
+            
 
         }
 
