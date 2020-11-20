@@ -24,3 +24,5 @@ exports.getImages = async (req, res) => {
     res.status(500).send({message: 'Falha ao carregar as imagens.'});
   }
 };
+
+ 

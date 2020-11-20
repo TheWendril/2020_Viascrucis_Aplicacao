@@ -68,4 +68,6 @@ app.use('/stories', storiesRoutes);
 const galleryRoutes = require('./routes/gallery-routes');
 app.use('/gallery', galleryRoutes);
 
+const contactRoutes = require('./routes/contact-routes');
+app.use('/contact', contactRoutes);
 module.exports = app;
