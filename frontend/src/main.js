@@ -4,6 +4,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex'
+import 'formvuelar/dist/formvuelar.css'
 
 //import components
 import contact_form from './components/contact_form';
@@ -37,6 +38,7 @@ const router = new VueRouter({
     }
   ]
 })
+
 
 // VUEX
 

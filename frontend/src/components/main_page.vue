@@ -5,7 +5,7 @@
         <banner ></banner>
         <about></about>
         <about_map></about_map>
-        <Slide_carousel @eventTest="functionTest"/>
+        <Slide_carousel/>
         <footer_form></footer_form>
     </div>
 

@@ -12,6 +12,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "core-js": "^3.7.0",
+    "formvuelar": "^1.5.21",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "popper.js": "^1.16.1",
@@ -20,6 +21,7 @@
     "vue-gallery-slideshow": "^1.5.2",
     "vue-router": "^3.4.9",
     "vue-scrollto": "^2.20.0",
+    "vuelidate": "^0.7.6",
     "vuex": "^3.5.1"
   },
   "devDependencies": {

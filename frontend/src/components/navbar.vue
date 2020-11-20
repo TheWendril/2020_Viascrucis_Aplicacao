@@ -19,7 +19,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" :class="{'nav-link': nav_link, 'active': active_items[2]}" @click="go_to_contact"> Contato </a>
-                </li>            
+                </li>      
                 </ul>
             </div>
             </div>
