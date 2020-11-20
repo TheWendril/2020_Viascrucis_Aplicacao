@@ -16,7 +16,7 @@
                 <img class="rounded-circle mb-2 info-card" src="../assets/book.png">
                 <h3 class="mt-2 text-dark">Nosso Livro</h3>
                 <p>As narrativas de morte e de vida ao longo e às margens das rodovias são a matéria-prima deste trabalho. Principalmente no que toca às cruzes e monumentos “fincados” àbeira do asfalto, decorrentes de perdas de entes queridos em face aos desastres ocorridos nestas vias cheias de histórias, paisagens, culturas e símbolos vários de extrema relevância e complexidade.</p>
-                <p><a class="btn btn-primary" href="#" role="button">Ver mais&raquo;</a></p>
+                <p><a class="btn btn-primary" href="https://drive.google.com/file/d/1OIJSfl8-rAYZgWHe2atD7o5477PCBGLo/view?usp=sharing" target="_blank" role="button">Ler livro&raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
     </div>

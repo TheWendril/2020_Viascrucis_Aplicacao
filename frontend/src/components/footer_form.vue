@@ -20,7 +20,7 @@
                             </li>
                                 
                             <li>
-                                <a href="http://www.github.com" target="_blank">Github</a>
+                                <a href="https://github.com/TheWendril/viascrucis" target="_blank">Github</a>
                             </li>
                         </ul>
                     </div>

@@ -8,6 +8,9 @@ const schema = new Schema({
     },
     upvotes: {
         type: Number
+    },
+    position:{
+        type: Number
     }
 },
 

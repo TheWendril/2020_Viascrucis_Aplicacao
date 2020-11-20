@@ -58,6 +58,7 @@ const Stories = require('./models/stories');
 // Load models
 const Gallery = require('./models/gallery');
 
+
 // Load routes
 const indexRoutes = require('./routes/index-routes');
 app.use('/', indexRoutes);
@@ -70,4 +71,6 @@ app.use('/gallery', galleryRoutes);
 
 const contactRoutes = require('./routes/contact-routes');
 app.use('/contact', contactRoutes);
+
+
 module.exports = app;

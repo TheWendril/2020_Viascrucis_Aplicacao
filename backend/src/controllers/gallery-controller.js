@@ -25,4 +25,18 @@ exports.getImages = async (req, res) => {
   }
 };
 
+exports.addUpvote = async (req, res) => {
+  try {
+    const data = await Gallery.findOne({'position': req.body.position});
+    
+    data.upvotes++
+
+    await data.save();
+
+    res.status(200).send(data);
+  } catch (e) {
+    res.status(500).send({message: 'Falha ao add upvote.'});
+  }
+};
+
  

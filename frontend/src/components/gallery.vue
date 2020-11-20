@@ -3,7 +3,21 @@
   <amplied_image @hiddenEvent="hidden_amplied_image" :font="atual_link_amplied" v-if="amplied"/>
   <div :class="{'container': true, 'hasblur': amplied}">
 
-    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria</h1>
+    <div class="row">
+      <div class="col">
+        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria</h1>
+      </div>
+
+      <div class="col align-text-bottom align-bottom">
+        <div class="form-group">
+        <label for="sort">Ordenar por </label>
+          <select  v-model="align_select" v-on:change="select_change" id="sort">
+            <option value="upvotes" selected>Up Votes</option>
+            <option value="date" >Data</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
     <hr class="mt-2 mb-5">
 
@@ -42,7 +56,7 @@ export default {
 
   data(){
     return{
-
+      align_select: 'Up Votes',
       amplied: false,
       atual_link_amplied: '',
       imgs: []
@@ -54,14 +68,14 @@ export default {
     
     increment_upvote: function(img){
       
-      console.log(img)
-      
       var put_request = {
         position: img.position
+
       }
 
-      Axios.put('http://localhost:3000/gallery', {put_request})
+      Axios.put('http://localhost:3000/gallery', put_request)
       img.upvotes += 1
+
     },
 
     hidden_amplied_image: function(){
@@ -70,19 +84,43 @@ export default {
 
     show_amplied_image: function(link){
 
-      console.log('evento ocorrendo')
       this.atual_link_amplied = link
       this.amplied = true
+    },
+
+    select_change: function($event){
+
+      console.log($event.target.value)
+
+      if($event.target.value === 'date'){
+        this.align_select = 'Data'
+        this.sortData()
+      }
+      if($event.target.value === 'upvotes'){
+        this.align_select = 'Up Votes'
+        this.sortData()
+      }
+    },
+    sortData: function(){
+
+      if(this.align_select == 'Up Votes'){
+       
+        this.imgs.sort(function(a, b){ return b.upvotes - a.upvotes})
+
+      }else{
+        
+        this.imgs.sort(function(a, b){return b.position - a.position})
+      
+      }
     }
 
   },
   created(){
     Axios.get('http://localhost:3000/gallery').then(res => {
       
-      res.forEach(element => {
+      res.data.forEach(element => {
         this.imgs.push(element)
       });
-    
     })
     
     this.enable(1)

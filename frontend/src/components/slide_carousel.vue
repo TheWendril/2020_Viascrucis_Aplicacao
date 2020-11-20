@@ -26,7 +26,7 @@
                     <span class="sr-only">Próximo</span>
                 </a>
         </div>
-        <p class="mt-5">Acesse nossa <a class="link"  @click="go_to_gallery"> galeria </a> e veja as melhores fotos de sla oq</p>
+        <p class="mt-5">Acesse nossa <a class="link"  @click="go_to_gallery"> galeria </a> e veja todos os nossos registros!</p>
         
     </div>
     

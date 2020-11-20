@@ -32,7 +32,7 @@ export default {
 <style scoped>
 
 .container{
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .map-image{
