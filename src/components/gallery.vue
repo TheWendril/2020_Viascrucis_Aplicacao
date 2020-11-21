@@ -23,7 +23,7 @@
 
     <div class="row text-center text-lg-left">
 
-      <div class="col-lg-3 col-md-4 col-6" v-for="img in imgs" :key="img.position" >
+      <div class="col-lg-4 col-md-3 col-12" v-for="img in imgs" :key="img.position" >
         
         <a @click.once="increment_upvote(img)"> 
           <img src="../assets/up-arrow.png" class="mb-1" width="17px" height="20px" >
@@ -31,7 +31,7 @@
         </a>
 
         <a href="#" class="d-block mb-4 h-100" >
-          <img class="img-fluid img-thumbnail" :src="img.link" @click="show_amplied_image(img.link)">
+          <img class="img-gallery" :src="img.link" @click="show_amplied_image(img.link)">
         </a>
 
       </div>
@@ -136,6 +136,17 @@ export default {
 </script>
 
 <style scoped>
+
+.img-gallery{
+  object-fit: none;
+  object-position: center;
+  display: block;
+  position: relative;
+  height: 85%;
+  width: 100%;
+  overflow: hidden;
+  size: cover;
+}
 
 .hasblur{
   filter: blur(4px);

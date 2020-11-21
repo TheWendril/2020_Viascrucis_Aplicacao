@@ -10,7 +10,11 @@
                     <img class="d-block w-100" src="../assets/slide-2.png" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/slide-3.png" alt="Third slide">
+                        <img class="d-block w-100" src="../assets/slide-3.png" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Titulo da imagem 1</h5>
+                            <p>Texto rodando sla mano um texto qualquer ai vote 25</p>
+                        </div>
                     </div>
                     <div class="carousel-item">
                     <img class="d-block w-100" src="../assets/slide-4.png" alt="Third slide">
