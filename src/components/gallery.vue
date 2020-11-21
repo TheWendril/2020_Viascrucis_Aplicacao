@@ -4,16 +4,16 @@
   <div :class="{'container': true, 'hasblur': amplied}">
 
     <div class="row">
-      <div class="col">
+      <div class="col-md-10 col-sm-6">
         <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria</h1>
       </div>
 
-      <div class="col align-text-bottom align-bottom">
-        <div class="form-group">
-        <label for="sort">Ordenar por </label>
-          <select  v-model="align_select" v-on:change="select_change" id="sort">
-            <option value="upvotes" selected>Up Votes</option>
-            <option value="date" >Data</option>
+      <div class="col-md-2 col-sm-6">
+        <div class="form-group mt-3">
+        <label for="sort">Ordenar por :</label>
+          <select  v-model="align_select" @change="select_change" class="font-weight-light text-center form-control-sm form-control text-lg-right mt-1 mb-0" id="sort">
+            <option value="Up Votes" selected>Up Votes</option>
+            <option value="Data" >Data</option>
           </select>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
 
   data(){
     return{
-      align_select: 'Up Votes',
+      align_select: 'Data',
       amplied: false,
       atual_link_amplied: '',
       imgs: []
@@ -92,11 +92,11 @@ export default {
 
       console.log($event.target.value)
 
-      if($event.target.value === 'date'){
+      if($event.target.value === 'Data'){
         this.align_select = 'Data'
         this.sortData()
       }
-      if($event.target.value === 'upvotes'){
+      if($event.target.value === 'Up Votes'){
         this.align_select = 'Up Votes'
         this.sortData()
       }
