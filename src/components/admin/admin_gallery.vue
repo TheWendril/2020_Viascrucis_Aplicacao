@@ -1,7 +1,13 @@
 <template>
 <div>
 
-    <h1>teste</h1>
+    <div class="container text-left">
+    
+        <h3>Cadastrar Imagens</h3>
+        <hr/>
+        <h3>Exibir Imagens Cadastradas</h3>
+        <h5 class="text-black-50">Sem imagens cadastradas</h5>
+    </div>
 
 </div>
 </template>
@@ -26,5 +32,9 @@ export default {
 </script>
 
 <style scoped>
+
+.container{
+    margin-top: 110px;
+}
 
 </style>

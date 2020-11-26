@@ -3,7 +3,7 @@
 <div class="container text-left"> 
 
 <h3>Cadastrar Historia</h3>
-
+<hr/>
     <div class="row">
         <div class="col">
 
@@ -15,6 +15,7 @@
 
 
 <h3 class="mt-5">Solicitações de Histórias</h3>
+<hr/>
 <h5 class="text-black-50"> {{stories.length}} história(s) em espera...</h5>
     <div class="row shadow p-5 rounded-lg border mt-5 list-group" v-for="story in stories" :key="story._id">
         <div class="col ">
