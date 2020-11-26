@@ -34,10 +34,12 @@ export default {
     },
     methods: {
         ...mapMutations([
-            'enable'
+            'enable',
+            'show_d_Navbar'
         ])
     },
     created(){
+        this.show_d_Navbar()
         this.enable(0)
     }
 

@@ -5,7 +5,7 @@
             <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
                     <span class="logo"><p>Viascrucis</p></span>
-                    <p class="text-white-50 text-justify">Um projeto da Universidade Estadual do Ceará</p>
+                    <p class="text-white-50 text-justify">Entrar na sessão <a @click="go_to_admin"> admin </a></p>
                     </div>
                     
                     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -50,7 +50,11 @@
 <script>
 
 export default {
-    
+    methods: {
+        go_to_admin: function(){
+            this.$router.push('/admin')
+        }
+    }
 }
 </script>
 

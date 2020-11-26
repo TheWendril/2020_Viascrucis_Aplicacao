@@ -1,7 +1,9 @@
 <template>
 
   <div id="app" class="bg-light">  
-    <navbar/>
+
+    <navbar v-if="show_default_navbar"/>
+    <admin_nav v-else/>
     <router-view></router-view>
     
   </div>
@@ -11,20 +13,33 @@
 <script>
 
 import navbar from './components/navbar'
+import admin_nav from './components/admin/admin_nav'
+import {mapState} from  'vuex'
+
 
 export default {
   
   name: 'App',
 
   components: {
-    navbar
-    
+    navbar,
+    admin_nav
   },
 
   methods: {
   
   },
 
+  created(){
+    //this.$router.push('/')
+  },
+
+  computed: {
+    ...mapState({
+      show_default_navbar: state => state.show_default_navbar,
+      admin_access: state => state.admin_access
+    })
+  }
 }
 </script>
 

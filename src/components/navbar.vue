@@ -17,8 +17,11 @@
                 <li class="nav-item ">
                     <a :class="{'nav-link': nav_link, 'active': active_items[1]}" @click="go_to_gallery" >Galeria</a>
                 </li>
+                <li class="nav-item ">
+                    <a :class="{'nav-link': nav_link, 'active': active_items[2]}" @click="go_to_stories" >Histórias</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" :class="{'nav-link': nav_link, 'active': active_items[2]}" @click="go_to_contact"> Contato </a>
+                    <a class="nav-link" :class="{'nav-link': nav_link, 'active': active_items[3]}" @click="go_to_contact"> Contato </a>
                 </li>      
                 </ul>
             </div>
@@ -45,17 +48,6 @@ export default {
 
     methods: {
 
-        active_switch: function(index){
-
-            var list = []
-            for(var i = 0; i < 3; i++)
-                list.push(false)
-                
-            this.active_element = list
-            this.active_element[index] = true
-
-        },
-
         go_to_contact: function(){
             this.$router.push('/contato')
         },
@@ -68,15 +60,8 @@ export default {
             
             this.$router.push('/galeria')
         },
-
-        disable_all: function(){
-           
-            var list = []
-            for(var i = 0; i < 3; i++)
-                list.push(false)
-                    
-            this.active_element = list
-
+        go_to_stories: function(){
+            this.$router.push('/historias')
         },
         
     },

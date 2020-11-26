@@ -6,11 +6,9 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex'
 import 'formvuelar/dist/formvuelar.css'
 
+import router from './routes/index'
+
 //import components
-import contact_form from './components/contact_form';
-import send_history from './components/send_history';
-import main_page from './components/main_page'
-import gallery from './components/gallery'
 
 
 Vue.use(VueRouter)
@@ -18,35 +16,17 @@ Vue.use(Vuex)
 
 // ROUTES
 
-const router = new VueRouter({
-  routes: [
-    {
-      path: '/',
-      component: main_page
-    },
-    {
-      path: '/contato',
-      component: contact_form
-    },
-    {
-      path: '/enviar-historia',
-      component: send_history
-    },
-    {
-      path: '/galeria',
-      component: gallery
-    }
-  ]
-})
-
 
 // VUEX
 
 const store = new Vuex.Store({
   
   state: {
-    active_items: [true, false, false],
-    valor: 0
+    admin_access: true,
+    active_items: [true, false, false, false],
+    show_default_navbar: true,
+    admin_active_items: [true, false, false]
+
   },
   
   mutations: {
@@ -54,6 +34,7 @@ const store = new Vuex.Store({
     disable_all(state){
       
       var tempList = []
+      
       for(var i = 0; i < state.active_items.length; i++)
         tempList.push(false)
       
@@ -70,6 +51,32 @@ const store = new Vuex.Store({
       tempList[item] = true
       state.active_items = tempList
     
+    },
+    
+    enable_admin(state, item){
+ 
+      var tempList = []
+      for(var i = 0; i < state.admin_active_items.length; i++)
+        tempList.push(false)
+ 
+      tempList[item] = true
+      state.admin_active_items = tempList
+    
+    },
+
+    admin_ON(state){
+      state.admin = true
+    },
+
+    admin_OFF(state){
+      state.admin = false
+    },
+
+    hidden_d_Navbar(state){
+      state.show_default_navbar = false
+    },
+    show_d_Navbar(state){
+      state.show_default_navbar = true
     }
 
   },

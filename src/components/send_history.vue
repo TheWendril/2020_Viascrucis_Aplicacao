@@ -299,6 +299,7 @@ export default {
 
         if(this.validate()){
 
+          this.json_request['approved'] = false
           
           Axios.post('http://localhost:3000/stories/', this.json_request)
             
@@ -324,7 +325,7 @@ export default {
         Object.keys(this.json_request).forEach(item => {
           
           if(this.json_request[item] == '' || this.json_request[item] == null){
-            console.log(this.json_request[item])
+            
             bool = false
           }
         })

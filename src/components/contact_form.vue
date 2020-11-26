@@ -84,7 +84,7 @@ export default {
             message: ''
         }
         this.validate()
-        this.enable(2)
+        this.enable(3)
 
     },
     methods: {
