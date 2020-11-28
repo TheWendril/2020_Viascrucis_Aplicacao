@@ -104,7 +104,7 @@ export default {
                 multipart.append('description', this.new_img.description)
                 multipart.append('views', 0)
                 
-                Axios.post('http://localhost:3000/gallery').then(res => {
+                Axios.post('http://localhost:3000/gallery', multipart).then(res => {
                     
                     console.log(res)
                     setTimeout(() => {
