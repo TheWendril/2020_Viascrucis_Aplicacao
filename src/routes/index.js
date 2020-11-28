@@ -43,8 +43,7 @@ const router = new Router({
         path: '/admin/historia',
         component: admin_history
       },
-      { 
-        name: 'admin-gallery',
+      {
         path: '/admin/galeria',
         component: admin_gallery
       }
