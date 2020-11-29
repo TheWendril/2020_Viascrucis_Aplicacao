@@ -12,8 +12,8 @@
         <div class="form-group mt-3">
         <label for="sort">Ordenar por :</label>
           <select  v-model="align_select" @change="select_change" class="font-weight-light text-center form-control-sm form-control text-lg-right mt-1 mb-0" id="sort">
-            <option value="Up Votes" selected>Up Votes</option>
-            <option value="Data" >Data</option>
+            <option value="Views" selected>Views</option>
+            <option value="Data">Data</option>
           </select>
         </div>
       </div>
@@ -23,18 +23,44 @@
 
     <div class="row text-center text-lg-left">
 
-      <div class="col-lg-4 col-md-3 col-12" v-for="img in imgs" :key="img.position" >
-        
-        <a @click.once="increment_upvote(img)"> 
-          <img src="../assets/up-arrow.png" class="mb-1" width="17px" height="20px" >
-          {{img.upvotes}} Up Votes  
-        </a>
+         <div class="col-md-6 col-sm-12 mt-5" v-for="img in imgs" :key="img._id">
+            <img :src="img.url" class="g-img" @click="show_amplied_image(img)"/>
+            <div class="row mt-1">
 
-        <a href="#" class="d-block mb-4 h-100" >
-          <img class="img-gallery" :src="img.link" @click="show_amplied_image(img.link)">
-        </a>
-
-      </div>
+                <div class="col-1 text-right">
+                    <img src="https://img.icons8.com/ios/64/000000/info--v4.png" height="20px"/>
+                </div>
+            
+                <div class="col-8 text-left">
+                    {{img.description}}
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-1 text-right">
+                    <img src="https://img.icons8.com/wired/64/000000/copyright.png" height="20px"/>
+                </div>
+                <div class="col text-left">
+                    {{img.credits}}
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-1 text-right">
+                    <img src="https://img.icons8.com/fluent-systems-regular/24/000000/visible.png" height="20px"/>
+                </div>
+                <div class="col text-left">
+                    {{img.views}}
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-1 text-right">
+                    <img src="https://img.icons8.com/metro/26/000000/calendar.png" height="20px"/>
+                </div>
+                <div class="col text-left">
+                    {{img.createdAt}}
+                </div> 
+            </div>
+        </div>
     </div>
 
   </div>    
@@ -68,13 +94,10 @@ export default {
     
     increment_upvote: function(img){
       
-      var put_request = {
-        position: img.position
-
-      }
-
-      Axios.put('http://localhost:3000/gallery', put_request)
-      img.upvotes += 1
+      Axios.put('http://localhost:3000/gallery', {_id: img._id}).then(res => {
+        console.log(res)
+        img.views += 1
+      })
 
     },
 
@@ -82,10 +105,11 @@ export default {
       this.amplied = false
     },
 
-    show_amplied_image: function(link){
+    show_amplied_image: function(img){
 
-      this.atual_link_amplied = link
+      this.atual_link_amplied = img.url
       this.amplied = true
+      this.increment_upvote(img)
     },
 
     select_change: function($event){
@@ -96,20 +120,20 @@ export default {
         this.align_select = 'Data'
         this.sortData()
       }
-      if($event.target.value === 'Up Votes'){
-        this.align_select = 'Up Votes'
+      if($event.target.value === 'Views'){
+        this.align_select = 'Views'
         this.sortData()
       }
     },
     sortData: function(){
 
-      if(this.align_select == 'Up Votes'){
+      if(this.align_select == 'Views'){
        
-        this.imgs.sort(function(a, b){ return b.upvotes - a.upvotes})
+        this.imgs.sort(function(a, b){ return b.views - a.views})
 
       }else{
         
-        this.imgs.sort(function(a, b){return b.position - a.position})
+        this.imgs.sort(function(a, b){return b.createdAt - a.createdAt})
       
       }
     }
@@ -117,10 +141,8 @@ export default {
   },
   created(){
     Axios.get('http://localhost:3000/gallery').then(res => {
-      
-      res.data.forEach(element => {
-        this.imgs.push(element)
-      });
+      this.imgs = res.data
+      this.sortData()
     })
     
     this.enable(1)
@@ -144,6 +166,15 @@ export default {
   position: relative;
   height: 85%;
   width: 100%;
+  overflow: hidden;
+  size: cover;
+}
+
+.g-img{
+  object-fit: none;
+  object-position: center;
+  height: 50%;
+  width: 75%;
   overflow: hidden;
   size: cover;
 }

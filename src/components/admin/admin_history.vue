@@ -1,17 +1,6 @@
 <template>
 
-<div class="container text-left"> 
-
-<h3>Cadastrar Historia</h3>
-<hr/>
-    <div class="row">
-        <div class="col">
-
-            um porrada de formulario aqui dnv 
-
-        </div>
-    </div>
-
+<div class="container text-left" v-if="admin_access"> 
 
 
 <h3 class="mt-5">Solicitações de Histórias</h3>
@@ -103,7 +92,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import Axios from 'axios'
 
 export default {
@@ -116,9 +105,10 @@ export default {
     },
 
     created(){
-        this.enable_admin(0)
 
-        Axios.get('http://localhost:3000/adminStories').then(res => {
+        this.enable_admin(0)
+        
+        Axios.get('http://localhost:3000/adminStories', {data: {token: localStorage.getItem('token')}}).then(res => {
             this.stories = res.data
         })
         .catch(err => console.log(err))
@@ -151,7 +141,11 @@ export default {
     },
 
     computed: {
-        stories_number: () => this.stories.length
+        stories_number: () => this.stories.length,
+        ...mapState({
+            admin_access: state => state.admin_access,
+            token: state => state.token
+        })
     }
 }
 

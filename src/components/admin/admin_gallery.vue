@@ -1,11 +1,12 @@
 <template>
 <div>
 
-    <div class="container text-left">
-    
+    <amplied_image :font='img_font' @hiddenEvent="hidden_amplied_image" v-if="amplied"/>
+
+    <div class="container text-left" v-if="admin_access">
+        
         <h3>Cadastrar Imagens</h3>
         <hr/>
-        
         <div class="form-group">
             <div class="row mt-5">
                 
@@ -36,13 +37,50 @@
         </div>
 
         <h3 class="mt-5">Exibir Imagens Cadastradas</h3>
-        <h5 class="text-black-50" v-if="imgs.length == 0">Sem imagens cadastradas</h5>
+        <h5 class="text-black-50">{{imgs.length}} imagens</h5>
         <hr/>
+        <h5 class="text-black-50" v-if="imgs.length == 0">Sem imagens cadastradas</h5>
         <div class="row mt-5 text-center">
 
             <div class="col-md-6 col-sm-12 mt-5" v-for="img in imgs" :key="img._id">
-                <img :src="img.url" height="150px"/>
-                <p> {{img}} </p>
+                <img :src="img.url" class="g-img" @click="show_amplied_image(img)"/>
+                <div class="row mt-1">
+
+                    <div class="col-3 text-right">
+                        <img src="https://img.icons8.com/ios/64/000000/info--v4.png" height="20px"/>
+                    </div>
+                
+                    <div class="col text-left">
+                       {{img.description}}
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-3 text-right">
+                        <img src="https://img.icons8.com/wired/64/000000/copyright.png" height="20px"/>
+                    </div>
+                   <div class="col text-left">
+                       {{img.credits}}
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-3 text-right">
+                        <img src="https://img.icons8.com/fluent-systems-regular/24/000000/visible.png" height="20px"/>
+                    </div>
+                   <div class="col text-left">
+                       {{img.views}}
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-3 text-right">
+                        <img src="https://img.icons8.com/metro/26/000000/calendar.png" height="20px"/>
+                    </div>
+                   <div class="col text-left">
+                       {{img.createdAt}}
+                    </div> 
+                </div>
+                
+                <p> <button class="btn btn-outline-danger mt-4" @click="delete_img(img)">Deletar</button> </p>
             </div>
 
         </div>
@@ -55,16 +93,23 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import Axios from 'axios'
+import amplied_image from '@/components/amplied_image.vue'
 
 export default {
+
+    components:{
+        amplied_image
+    },
 
     data(){
         return {
             imgs: [],
             new_img: null,
-            check: false
+            check: false,
+            img_font: '',
+            amplied: false
         }
     },
 
@@ -97,8 +142,8 @@ export default {
             this.check = true
 
             if(this.verify_data()){
+
                 const multipart = new FormData()
-                console.log(this.new_img.file)
                 multipart.append('file', this.new_img.file)
                 multipart.append('credits', this.new_img.credits)
                 multipart.append('description', this.new_img.description)
@@ -112,7 +157,7 @@ export default {
                     }, 600)
 
                 }).catch(err => {
-                    console.log(err)
+                    console.log('deu ruim aqui irmao', err)
                 })
             }
         
@@ -125,7 +170,29 @@ export default {
                     return false
            
             return true
+        },
+
+        show_amplied_image: function(img){
+            this.img_font = img.url
+            this.amplied = true
+        },
+
+        hidden_amplied_image: function(){
+            this.amplied = false
+        },
+
+        delete_img: function(img){
+            Axios.delete('http://localhost:3000/gallery', {data: {_id: img._id}}).then(res => {
+                console.log(res)
+                this.imgs.splice(this.imgs.indexOf(img), this.imgs.indexOf(img) + 1)
+            }).catch(err => {console.log(err)})
+            
         }
+    },
+    computed: {
+        ...mapState({
+            admin_access: state => state.admin_access
+        })
     } 
 }
 </script>
@@ -134,6 +201,15 @@ export default {
 
 .container{
     margin-top: 110px;
+}
+
+.g-img{
+  object-fit: none;
+  object-position: center;
+  height: 50%;
+  width: 75%;
+  overflow: hidden;
+  size: cover;
 }
 
 </style>

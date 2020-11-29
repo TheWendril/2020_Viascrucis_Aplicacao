@@ -1,9 +1,9 @@
 <template>
     <div class="background-blur text-center" @click="hidden_content">
-        <div class="row mh-100 d-inline-block h-100">
-            <div class="col-md-12 col-sm-4 mh-100 h-100 mx-auto d-flex flex-column justify-content-center align-items-center">
+        <div class="row mh-100 h-100 d-flex">
+            <div class="col mh-100 h-100 mx-auto d-flex justify-content-center align-items-center">
                 <div>
-                    <img class="img-fluid " :src="font">
+                    <img class="a-img img" :src="font">
                 </div>
             </div>
         </div>
@@ -39,6 +39,9 @@ export default {
 
 }
 
+.a-img{
+    width: 60%;
+}
 
 @keyframes amplier {
     0%{

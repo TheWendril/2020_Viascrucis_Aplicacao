@@ -9,7 +9,7 @@ import stories from '@/components/stories'
 import admin_login from '@/components/admin/admin_login'
 import admin_gallery from '@/components/admin/admin_gallery'
 import admin_history from '@/components/admin/admin_history'
-
+import admin_user from '@/components/admin/admin_user'
 
 Vue.use(Router)
 
@@ -46,6 +46,10 @@ const router = new Router({
       {
         path: '/admin/galeria',
         component: admin_gallery
+      },
+      {
+        path: '/admin/usuarios',
+        component: admin_user
       }
     ]
   })

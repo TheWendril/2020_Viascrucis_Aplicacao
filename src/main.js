@@ -22,10 +22,11 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   
   state: {
-    admin_access: true,
+    admin_access: false,
     active_items: [true, false, false, false],
     show_default_navbar: true,
-    admin_active_items: [true, false, false]
+    admin_active_items: [true, false, false],
+    token: ''
 
   },
   
@@ -64,12 +65,20 @@ const store = new Vuex.Store({
     
     },
 
-    admin_ON(state){
-      state.admin = true
+    admin_ON(state, token){
+      state.admin_access = true
+      state.token = token
+      localStorage.setItem('token', state.token)
     },
 
     admin_OFF(state){
-      state.admin = false
+      state.admin_access = false
+      state.token = ''
+      localStorage.removeItem('token')
+    },
+
+    get_Token(state){
+      return state.token
     },
 
     hidden_d_Navbar(state){
