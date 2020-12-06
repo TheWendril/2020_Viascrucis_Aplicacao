@@ -28,7 +28,7 @@
             <div class="row mt-1">
 
                 <div class="col-1 text-right">
-                    <img src="https://img.icons8.com/ios/64/000000/info--v4.png" height="20px"/>
+                    <img src="https://img.icons8.com/ios/64/000000/info--v4.png" height="18px"/>
                 </div>
             
                 <div class="col-8 text-left">
@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-1 text-right">
-                    <img src="https://img.icons8.com/wired/64/000000/copyright.png" height="20px"/>
+                    <img src="https://img.icons8.com/wired/64/000000/copyright.png" height="18px"/>
                 </div>
                 <div class="col text-left">
                     {{img.credits}}
@@ -46,7 +46,7 @@
             </div>
             <div class="row">
                 <div class="col-1 text-right">
-                    <img src="https://img.icons8.com/fluent-systems-regular/24/000000/visible.png" height="20px"/>
+                    <img src="https://img.icons8.com/fluent-systems-regular/24/000000/visible.png" height="18px"/>
                 </div>
                 <div class="col text-left">
                     {{img.views}}
@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-1 text-right">
-                    <img src="https://img.icons8.com/metro/26/000000/calendar.png" height="20px"/>
+                    <img src="https://img.icons8.com/metro/26/000000/calendar.png" height="18px"/>
                 </div>
                 <div class="col text-left">
                     {{img.createdAt}}

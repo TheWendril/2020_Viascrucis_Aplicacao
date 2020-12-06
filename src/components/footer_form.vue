@@ -1,41 +1,53 @@
 <template>
     <div>
-        <footer class="footer p-4">
+        <footer class="footer shadow p-4">
             <div class="container">
             <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="logo"><p>Viascrucis</p></span>
-                    <p class="text-white-50 text-justify">Entrar na sessão <a @click="go_to_admin"> admin </a></p>
-                    </div>
-                    
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <ul class="menu">
-                            <span>Social</span>    
+                        <ul class=" menu pl-2">
+                          <span>Patrocinadores</span>
                             <li>
-                                <a href="https://www.facebook.com/viasdasaudade/" target="_blank">Facebook</a>
+                                <a href="https://www.feirafuneraria.com.br/" target="_blank">Feira Funerária</a>
                             </li>
                                 
                             <li>
-                                <a href="https://www.instagram.com/viasdasaudade/" target="_blank">Instagram</a>
+                                <a href="https://www.instagram.com/guiafunerario/?igshid=1kyabcnrrxobc" target="_blank">Guia Funerário</a>
+                            </li>
+                        </ul>    
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="menu pl-2">
+                            <span>Social</span>    
+                            <li>
+                                <a href="https://www.facebook.com/viascrucis" target="_blank">Facebook</a>
+                            </li>
+                                
+                            <li>
+                                <a href="https://www.instagram.com/viascrucis/" target="_blank">Instagram</a>
                             </li>
                                 
                             <li>
                                 <a href="https://github.com/TheWendril/viascrucis" target="_blank">Github</a>
                             </li>
+
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCzB9QLp14xlvj4bCMD2Y9Hw" target="_blank">Youtube</a>
+                            </li>
                         </ul>
                     </div>
             
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="address">
+                    <ul class="address pl-2">
                             <span>Contato</span>       
                             <li>
-                            <i class="fa fa-phone" aria-hidden="true"></i> <a>(85) 98853-0566</a>
+                            <i class="fa fa-phone" aria-hidden="true"></i> <a> (88) 9811-96171</a>
                             </li>
                             <li>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i> <a>Av. Dom Aureliano Matos, 2058</a>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> <a>Rua Júlio Alves da Silva, 153 apto 202</a>
                             </li> 
                             <li>
-                            <i class="fa fa-envelope" aria-hidden="true"></i> <a>viasdasaudade@gmail.com</a>
+                            <i class="fa fa-envelope" aria-hidden="true"></i> <a>contato@viascrucis.com.br</a>
                             </li> 
                     </ul>
                 </div>
@@ -43,7 +55,28 @@
             
             </div> 
             </div>
+
+
         </footer>
+
+        <footer>
+            
+            <div class="container-fluid ff">
+
+                <div class="row pt-3 pb-2">
+                    <div class="col-md-4 col-sm-12 offset-md-2">
+                        <h6 class="text-white-50">©Viascrucis 2017-2020</h6>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center col-sm-12">
+                        <img class="mr-2" src="https://img.icons8.com/ios-glyphs/30/000000/microsoft-admin--v1.png" height="20px"/>
+                        <h6><a class="text-white-50" @click="go_to_admin">Página Admin</a></h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
+
     </div>
 </template>
 
@@ -151,6 +184,11 @@ footer{
     font-size:18px;
 }
 
+a:hover{
+    cursor: pointer;
+}
 
-
+.ff{
+    background-color: #2b2e31;
+}
 </style>

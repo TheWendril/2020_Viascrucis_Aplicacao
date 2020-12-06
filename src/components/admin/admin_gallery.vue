@@ -86,6 +86,9 @@
         </div>
         
     </div>
+    <div v-else>
+        <h1><b>Acesso Negado</b></h1>
+    </div>
 
 </div>
 </template>
@@ -114,9 +117,14 @@ export default {
     },
 
     created(){
+
         this.enable_admin(1)
         this.hidden_d_Navbar()
-
+        
+        var valid = localStorage.token
+        if(valid != undefined && valid != null && valid != '')
+            this.admin_ON(valid)
+        
         this.new_img = {
             file: null,
             credits: null,
@@ -130,7 +138,8 @@ export default {
     methods: {
         ...mapMutations([
             'enable_admin',
-            'hidden_d_Navbar'
+            'hidden_d_Navbar',
+            'admin_ON'
         ]),
         
         changeFile: function(event){
@@ -152,9 +161,8 @@ export default {
                 Axios.post('http://localhost:3000/gallery', multipart).then(res => {
                     
                     console.log(res)
-                    setTimeout(() => {
-                        this.$router.go()
-                    }, 600)
+                    alert('Imagem enviada')
+                    this.$router.go()
 
                 }).catch(err => {
                     console.log('deu ruim aqui irmao', err)
@@ -182,9 +190,14 @@ export default {
         },
 
         delete_img: function(img){
-            Axios.delete('http://localhost:3000/gallery', {data: {_id: img._id}}).then(res => {
+
+            Axios.delete('http://localhost:3000/gallery', {data: {_id: img._id, token: localStorage.getItem('token')}})
+            .then(res => {
+            
                 console.log(res)
+                alert('Imagem deletada')
                 this.imgs.splice(this.imgs.indexOf(img), this.imgs.indexOf(img) + 1)
+            
             }).catch(err => {console.log(err)})
             
         }

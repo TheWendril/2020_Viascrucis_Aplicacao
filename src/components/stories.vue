@@ -1,52 +1,25 @@
 <template>
 <div class="container text-left">
-    <h3>Historias</h3>
+    <h3>Histórias</h3>
+    <h5 class="text-black-50">Temos {{stories.length}} histórias</h5>
    <div class="row shadow p-5 rounded-lg border mt-5" v-for="story in stories" :key="story._id">
-        <div class="col ">
+        
+        <div class="col">
+            
             <div class="row">
-                <div class="col">
-                    <h5>Informações do remetente: </h5>
+
+                <div class="col-md-8 col-sm-12 mb-3">
+                    <b class="h4">{{story.firstName + ' ' +story.lastName}}</b> homenageou <b class="h4">{{story.firstNameHonor + ' ' +story.lastNameHonor}}</b> 
+                    ({{story.anoNascimento}}  - {{story.anoNascimento + story.idade}})
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <b>Nome:</b> {{story.firstName}}
-                </div>
-                <div class="col">
-                    <b>Sobrenome:</b> {{story.lastName}}
-                </div>
-                <div class="col">
-                    <b>Telefone:</b> {{story.telefone}}
+                <div class="col-md-4 text-right">
+                    <img src="https://img.icons8.com/ios/50/000000/clock--v1.png" height="20px" /><b class="ml-2">20/04/2003</b> 
                 </div>
 
             </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Email:</b> {{story.email}}
-                </div>
-                <div class="col">
-                    <b>Grau de Parentesco:</b> {{story.degreeOfKinship}}
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col">
-                    <h5>Informações da pessoa querida: </h5>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Nome:</b> {{story.firstNameHonor}}
-                </div>
-                <div class="col">
-                    <b>Sobrenome:</b> {{story.lastNameHonor}}
-                </div>
-                <div class="col">
-                    <b>Idade:</b> {{story.idade}}
-                </div>
-                <div class="col">
-                    <b>Ano de nascimento:</b> {{story.anoNascimento}}
-                </div>
-            </div>
+
+        <hr>    
+
             <div class="row mt-2">
                 <div class="col-md-12">
                     <b>Homenagem:</b> {{story.textTribute}}
@@ -57,18 +30,17 @@
                     <b>Epitáfio:</b> {{story.epitafio}}
                 </div>
             </div>
+            
+
+            <p class="h4 mt-5"><img src="https://img.icons8.com/ios/50/000000/place-marker--v2.png" class="mr-2" height="30px"/>Locais:</p>
+            <hr>
+
             <div class="row mt-2">
-                <div class="col">
-                    <b>Cidade de Nascimento:</b> {{story.bornCity}}
+                <div class="col-md-3 col-sm-12">
+                    <b>Nascimento:</b> {{story.bornCity + '/' + story.bornState}}
                 </div>
-                <div class="col">
-                    <b>Estado de Nascimento:</b> {{story.bornState}}
-                </div>
-                <div class="col">
-                    <b>Cidade de Falecimento:</b> {{story.deadCity}}
-                </div>
-                <div class="col">
-                    <b>Estado de Falecimento:</b> {{story.deadState}}
+                <div class="col-md-4 col-sm-12">
+                    <b>Falecimento:</b> {{story.deadCity + '/' + story.deadState}}
                 </div>
             </div>
         </div>

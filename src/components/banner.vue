@@ -1,11 +1,11 @@
 <template>
     
-    <div id="banner" class="container-fluid position-relative overflow-hidden p-3 md-5 text-center">
+    <div class="container-fluid banner position-relative overflow-hidden p-3 md-5 shadow text-center">
         <div class="row h-100">
-            <div class="col-md-5 p-lg-5 mx-auto my-auto">    
-                <h1 class="display-4 font-weight-normal text-light">Vias Crucis</h1>
-                <p class="lead font-weight-normal text-light">Caminhos da Saudade</p>
-                <a class="btn btn-outline-light" @click="open_send_history">Enviar história</a>
+            <div class="col-md-5 p-lg-5 mx-auto my-auto content-banner">    
+                <img src="../assets/vc-banner.png" class="fixed img mb-5" width="300px"/>
+                <p class="lead font-weight-normal text-light">Não são só cruzes. São biografias, histórias e saudades</p>
+                <a class="btn btn-outline-light shadow" @click="open_send_history">Enviar história</a>
             </div>
         </div>
     </div>
@@ -37,15 +37,17 @@ export default {
 
 <style scoped>
 
-#banner{
+.banner{
      background-image: url('../assets/bg-masthead.png');
      background-position: center;
      background-repeat: no-repeat;
-     height: 650px;    
+
+     height: 650px;
+     filter: blur(0px);    
 
 }
 
-#content-banner{
+.content-banner{
     margin-top: auto;
     margin-bottom: auto;
 }

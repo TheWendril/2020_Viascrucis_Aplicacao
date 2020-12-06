@@ -1,6 +1,6 @@
 <template>
 
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top position-fixed">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow fixed-top position-fixed">
             <div class="container">
             
             <a class="navbar-brand" href="index.html">

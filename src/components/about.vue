@@ -5,7 +5,8 @@
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/vias.png" >
                 <h3 class="mt-2 text-dark">Vias</h3>
-                <p>Recorte de todas as rodovias percorridas pela esquipe do Vias Crucis na região Nordeste do Brasil, mais precisamente nos estados do Ceará e Pernambuco. Além disso, percorremos esses caminhos por meio de expedições, aos quais tinham como intuito de ir ao encontro dos diversos memoriais estradeiros (cruzes, capelas, capelinhas e oratórios), que se encontram levantados nas diversas vias do sertão.</p>
+                <p> Somos pesquisadores que preservamos as memórias das pessoas que tiveram sua trajetória interrompida na estrada da vida. 	
+                    A ideia é utilizar esse espaço para registrar a caminhada do nosso ente querido, preservando e mantendo suas histórias e biografia.</p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/relatos.png" >
@@ -15,7 +16,7 @@
             <div class="col-lg-4 rounded">
                 <img class="rounded-circle mb-2 info-card" src="../assets/book.png">
                 <h3 class="mt-2 text-dark">Nosso Livro</h3>
-                <p>As narrativas de morte e de vida ao longo e às margens das rodovias são a matéria-prima deste trabalho. Principalmente no que toca às cruzes e monumentos “fincados” àbeira do asfalto, decorrentes de perdas de entes queridos em face aos desastres ocorridos nestas vias cheias de histórias, paisagens, culturas e símbolos vários de extrema relevância e complexidade.</p>
+                <p>Nesse e-book gratuito, você vai encontrar uma excelente seleção de imagens e textos sobre as cruzes na beira da estrada . Você vai nos acompanhar na estrada, encontrando e conhecendo os variados tipos de memoriais que homenageiam os estradeiros falecidos.</p>
                 <p><a class="btn btn-primary" href="https://drive.google.com/file/d/1OIJSfl8-rAYZgWHe2atD7o5477PCBGLo/view?usp=sharing" target="_blank" role="button">Ler livro&raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->

@@ -12,7 +12,7 @@
 
             <div class="col-sm-5 text-center my-auto map-text-info">
 
-                <p class="text-justify">Um mapa (do termo latino mappa) é uma representação visual de uma região. São, geralmente, representações bidimensionais de um espaço tridimensional. A ciência da concepção e fabricação de mapas designa-se cartografia. </p>
+                <p class="text-justify">Estamos utilizando as coordenadas geográficas para obtermos a posição exata do memorial na beira da estrada. Com isso, não só registramos, mas conduzimos você ao local onde se encontrada edificado o memorial, promovendo interação e uma experiência única de visitação. (Em breve)</p>
                 <button class="btn btn-outline-primary shadow mb-4">Ver Mapas</button>
 
             </div>

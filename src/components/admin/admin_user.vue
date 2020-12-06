@@ -2,7 +2,7 @@
 
 <div class="container" v-if="admin_access">
     
-    <h1>asldjasld</h1>    
+    <h1>Construir aqui</h1>    
 </div>    
 
 </template>

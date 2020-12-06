@@ -3,7 +3,7 @@
   <div id="app" class="bg-light">  
 
     <navbar v-if="show_default_navbar"/>
-    <admin_nav v-else/>
+    <admin_nav v-else-if="admin_access"/>
     <router-view></router-view>
     
   </div>
@@ -31,7 +31,6 @@ export default {
   },
 
   created(){
-    //this.$router.push('/')
   },
 
   computed: {

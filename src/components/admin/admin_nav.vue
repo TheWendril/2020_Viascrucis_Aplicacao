@@ -17,9 +17,6 @@
         <a class="nav-link" @click="go_to_admin_gallery" >Galeria</a>
       </li>
 
-      <li :class="{'nav-item': true, 'active': admin_active_items[2]}" @click="enable_admin(2)">
-        <a class="nav-link" @click="go_to_admin_user"> Usuários </a>
-      </li>
       
 
     </ul>
@@ -65,9 +62,7 @@ export default {
         go_to_home: function(){
           this.$router.push('/')
         },
-        go_to_admin_user: function(){
-          this.$router.push('/admin/usuarios')
-        }
+        
     },
 
     computed: {

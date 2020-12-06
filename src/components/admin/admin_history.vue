@@ -1,92 +1,95 @@
 <template>
 
-<div class="container text-left" v-if="admin_access"> 
+<div> 
 
+    <div class="container text-left" v-if="admin_access">
+    <h3 class="mt-5">Solicitações de Histórias</h3>
+    <hr/>
+    <h5 class="text-black-50"> {{stories.length}} história(s) em espera...</h5>
+        <div class="row shadow p-5 rounded-lg border mt-5 list-group" v-for="story in stories" :key="story._id">
+            <div class="col ">
+                <div class="row">
+                    <div class="col">
+                        <h5>Informações do remetente: </h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>Nome:</b> {{story.firstName}}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Sobrenome:</b> {{story.lastName}}
+                    </div>
+                    <div class="col">
+                        <b>Telefone:</b> {{story.telefone}}
+                    </div>
 
-<h3 class="mt-5">Solicitações de Histórias</h3>
-<hr/>
-<h5 class="text-black-50"> {{stories.length}} história(s) em espera...</h5>
-    <div class="row shadow p-5 rounded-lg border mt-5 list-group" v-for="story in stories" :key="story._id">
-        <div class="col ">
-            <div class="row">
-                <div class="col">
-                    <h5>Informações do remetente: </h5>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <b>Nome:</b> {{story.firstName}}
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <b>Email:</b> {{story.email}}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Grau de Parentesco:</b> {{story.degreeOfKinship}}
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <b>Sobrenome:</b> {{story.lastName}}
+                <div class="row mt-4">
+                    <div class="col">
+                        <h5>Informações da pessoa querida: </h5>
+                    </div>
                 </div>
-                <div class="col">
-                    <b>Telefone:</b> {{story.telefone}}
+                <div class="row mt-2">
+                    <div class="col">
+                        <b>Nome:</b> {{story.firstNameHonor}}
+                    </div>
+                    <div class="col">
+                        <b>Sobrenome:</b> {{story.lastNameHonor}}
+                    </div>
+                    <div class="col">
+                        <b>Idade:</b> {{story.idade}}
+                    </div>
+                    <div class="col">
+                        <b>Ano de nascimento:</b> {{story.anoNascimento}}
+                    </div>
                 </div>
-
-            </div>
-            <div class="row mt-2">
-                <div class="col-md-4">
-                    <b>Email:</b> {{story.email}}
+                <div class="row mt-2">
+                    <div class="col">
+                        <b>Homenagem:</b> {{story.textTribute}}
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <b>Grau de Parentesco:</b> {{story.degreeOfKinship}}
+                <div class="row mt-2">
+                    <div class="col">
+                        <b>Epitáfio:</b> {{story.epitafio}}
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col">
-                    <h5>Informações da pessoa querida: </h5>
+                <div class="row mt-2">
+                    <div class="col">
+                        <b>Cidade de Nascimento:</b> {{story.bornCity}}
+                    </div>
+                    <div class="col">
+                        <b>Estado de Nascimento:</b> {{story.bornState}}
+                    </div>
+                    <div class="col">
+                        <b>Cidade de Falecimento:</b> {{story.deadCity}}
+                    </div>
+                    <div class="col">
+                        <b>Estado de Falecimento:</b> {{story.deadState}}
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Nome:</b> {{story.firstNameHonor}}
+                <div class="row d-flex flex-row-reverse mt-5">
+                    <button class="btn btn-outline-danger ml-2" @click="reprove_story(story)">Reprovar</button>
+                    <button class="btn btn-outline-success" @click="aprove_story(story)">Aprovar</button>
                 </div>
-                <div class="col">
-                    <b>Sobrenome:</b> {{story.lastNameHonor}}
-                </div>
-                <div class="col">
-                    <b>Idade:</b> {{story.idade}}
-                </div>
-                <div class="col">
-                    <b>Ano de nascimento:</b> {{story.anoNascimento}}
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Homenagem:</b> {{story.textTribute}}
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Epitáfio:</b> {{story.epitafio}}
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <b>Cidade de Nascimento:</b> {{story.bornCity}}
-                </div>
-                <div class="col">
-                    <b>Estado de Nascimento:</b> {{story.bornState}}
-                </div>
-                <div class="col">
-                    <b>Cidade de Falecimento:</b> {{story.deadCity}}
-                </div>
-                <div class="col">
-                    <b>Estado de Falecimento:</b> {{story.deadState}}
-                </div>
-            </div>
-            <div class="row d-flex flex-row-reverse mt-5">
-                <button class="btn btn-outline-danger ml-2" @click="reprove_story(story)">Reprovar</button>
-                <button class="btn btn-outline-success" @click="aprove_story(story)">Aprovar</button>
             </div>
         </div>
-    </div>
 
-    <div v-if="stories.length == 0">
-        <h5 class="text-black-50">Não há histórias para análise</h5 >
+        <div v-if="stories.length == 0">
+            <h5 class="text-black-50">Não há histórias para análise</h5 >
+        </div>
     </div>
-
+    <div v-else>
+        <h1><b>Acesso Negado</b></h1>
+    </div>
 </div>
 
 </template>
@@ -108,22 +111,37 @@ export default {
 
         this.enable_admin(0)
         
-        Axios.get('http://localhost:3000/adminStories', {data: {token: localStorage.getItem('token')}}).then(res => {
+
+        var valid = localStorage.token
+        if(valid != undefined && valid != null && valid != '')
+            this.admin_ON(valid)
+        
+
+        Axios.get('http://localhost:3000/adminStories').then(res => {
             this.stories = res.data
         })
         .catch(err => console.log(err))
+        
         this.hidden_d_Navbar()
         
     },
 
     methods: {
         ...mapMutations([
-            'enable_admin', 'hidden_d_Navbar'
+            'enable_admin', 'hidden_d_Navbar', 'admin_ON'
         ]),
 
         aprove_story: function(story){
             
-            Axios.put('http://localhost:3000/adminStories', {_id: story._id}).then(console.log('História Aprovada com Sucesso'))
+            Axios.put('http://localhost:3000/adminStories', {_id: story._id, token: localStorage.getItem('token')})
+                .then(res => {
+                    console.log(res)
+                    alert('Historia Aprovada com Sucesso')})
+                .catch(err => {
+                    console.log(err)
+                    alert('Falha ao Aprovar história')
+                })
+            
             var index = this.stories.indexOf(story)
             this.stories.splice(index, index + 1)
             
@@ -131,21 +149,35 @@ export default {
 
         reprove_story: function(story){
         
-            Axios.delete('http://localhost:3000/adminStories', {data: {_id: String(story._id)}}).then(console.log('História Reprovada com Sucesso'))
+            Axios.delete('http://localhost:3000/adminStories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+                .then(res => {
+                    console.log(res)
+                    alert('Historia Reprovada com Sucesso')})
+                .catch(err => {
+                    console.log(err)
+                    alert('Falha ao Reprovar história')
+                })
+
             this.stories.splice(this.stories.indexOf(story), this.stories.indexOf(story) + 1)
+        
         },
+
         deleta: function(i){
+
             console.log(this.list.indexOf(i))
             this.list.splice(this.list.indexOf(i), this.list.indexOf(i) + 1)
         }
     },
 
     computed: {
+    
         stories_number: () => this.stories.length,
+
         ...mapState({
             admin_access: state => state.admin_access,
             token: state => state.token
         })
+    
     }
 }
 
