@@ -1,4 +1,5 @@
 <template>
+
 <div>
   <amplied_image @hiddenEvent="hidden_amplied_image" :font="atual_link_amplied" v-if="amplied"/>
   <div :class="{'container': true, 'hasblur': amplied}">
@@ -21,6 +22,9 @@
 
     <hr class="mt-2 mb-5">
 
+        <div class="text-left" v-if="imgs == 0">
+            <h4 class="text-black-50">Sem imagens a mostrar!</h4>
+        </div>
     <div class="row text-center text-lg-left">
 
          <div class="col-md-6 col-sm-12 mt-5" v-for="img in imgs" :key="img._id">
@@ -60,6 +64,7 @@
                     {{img.createdAt}}
                 </div> 
             </div>
+            
         </div>
     </div>
 

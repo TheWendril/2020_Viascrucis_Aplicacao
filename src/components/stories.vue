@@ -13,7 +13,7 @@
                     ({{story.anoNascimento}}  - {{story.anoNascimento + story.idade}})
                 </div>
                 <div class="col-md-4 text-right">
-                    <img src="https://img.icons8.com/ios/50/000000/clock--v1.png" height="20px" /><b class="ml-2">20/04/2003</b> 
+                    <img src="https://img.icons8.com/ios/50/000000/clock--v1.png" height="20px" /><b class="ml-2">{{story.createdAt}}</b> 
                 </div>
 
             </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col">
+                <div v-if="story.epitafio != ''" class="col">
                     <b>Epitáfio:</b> {{story.epitafio}}
                 </div>
             </div>

@@ -28,7 +28,7 @@
                             </li>
                                 
                             <li>
-                                <a href="https://github.com/TheWendril/viascrucis" target="_blank">Github</a>
+                                <a onclick="window.open('https://github.com/TheWendril/2020_Viascrucis_Aplicacao'); window.open('https://github.com/micaelcc/2020_Viascrucis_API')" target="_blank">Github</a>
                             </li>
 
                             <li>

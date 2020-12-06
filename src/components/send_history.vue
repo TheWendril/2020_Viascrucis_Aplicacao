@@ -6,7 +6,6 @@
       <div class="text-center">
         <h2>Passo 1</h2>
         <h4>Nos conte sobre você</h4>
-        <h3>{{json_request}}</h3>
       </div>
 
     <form @submit.prevent="post_form" class="needs-validation" novalidate>
@@ -311,8 +310,6 @@ export default {
             .catch(err => {
               console.log(this.json_request, err)
             })
-
-            
 
         }
 
