@@ -8,16 +8,6 @@
       <div class="col-md-10 col-sm-6">
         <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria</h1>
       </div>
-
-      <div class="col-md-2 col-sm-6">
-        <div class="form-group mt-3">
-        <label for="sort">Ordenar por :</label>
-          <select  v-model="align_select" @change="select_change" class="font-weight-light text-center form-control-sm form-control text-lg-right mt-1 mb-0" id="sort">
-            <option value="Views" selected>Views</option>
-            <option value="Data">Data</option>
-          </select>
-        </div>
-      </div>
     </div>
 
     <hr class="mt-2 mb-5">
@@ -117,37 +107,14 @@ export default {
       this.increment_upvote(img)
     },
 
-    select_change: function($event){
-
-      console.log($event.target.value)
-
-      if($event.target.value === 'Data'){
-        this.align_select = 'Data'
-        this.sortData()
-      }
-      if($event.target.value === 'Views'){
-        this.align_select = 'Views'
-        this.sortData()
-      }
-    },
-    sortData: function(){
-
-      if(this.align_select == 'Views'){
-       
-        this.imgs.sort(function(a, b){ return b.views - a.views})
-
-      }else{
-        
-        this.imgs.sort(function(a, b){return b.createdAt - a.createdAt})
-      
-      }
-    }
-
   },
   created(){
+
     Axios.get('http://localhost:3000/gallery').then(res => {
+      
       this.imgs = res.data
-      this.sortData()
+      this.imgs.sort(function(a, b){ return b.views - a.views})
+
     })
     
     this.enable(1)
