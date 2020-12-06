@@ -6,6 +6,7 @@
       <div class="text-center">
         <h2>Passo 1</h2>
         <h4>Nos conte sobre você</h4>
+        <h3>{{json_request}}</h3>
       </div>
 
     <form @submit.prevent="post_form" class="needs-validation" novalidate>
@@ -118,11 +119,8 @@
                       Campo obrigatório!
                     </div>
 
-                    <label class="mt-3" for="_homenagem">Epitáfio</label>
-                    <textarea :class="{'form-control': true, 'is-invalid': json_request.epitafio == '' && check}" rows="2" required id="_homenagem" v-model="json_request.epitafio" placeholder="Resuma o que a pessoa tinha de mais especial..."></textarea>
-                    <div class="invalid-feedback">
-                      Campo obrigatório!
-                    </div>
+                    <label class="mt-3" for="_homenagem">Epitáfio <div class="text-black-50 d-flex">(Opcional)</div></label>
+                    <textarea class="form-control" rows="2" required id="_homenagem" v-model="epitafio" placeholder="Resuma o que a pessoa tinha de mais especial..."></textarea>
 
                   </div>
                   
@@ -233,7 +231,7 @@ export default {
             json_request: {},
             terms: [false, false, false, false],
             check: false,
-            
+            epitafio: '',   
         }
     },
     created(){
@@ -249,7 +247,6 @@ export default {
               idade: null,
               anoNascimento: null,
               textTribute: '',
-              epitafio: '',
               bornCity: '',
               bornState: '',
               deadCity: '',
@@ -300,7 +297,7 @@ export default {
         if(this.validate()){
 
           this.json_request['approved'] = false
-          this.json_request['createdAt'] = null
+          this.json_request['epitafio'] = this.epitafio
           
           Axios.post('http://localhost:3000/stories/', this.json_request)
             
@@ -311,7 +308,9 @@ export default {
               this.$router.push('/')
             
             })
-            .catch(error => console.error('Post Error: ', error))
+            .catch(err => {
+              console.log(this.json_request, err)
+            })
 
             
 
