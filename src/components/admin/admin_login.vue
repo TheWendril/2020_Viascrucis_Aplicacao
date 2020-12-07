@@ -55,7 +55,7 @@ export default {
 
         console.log(localStorage.getItem('token'))
 
-        if(localStorage.getItem('token') != null){
+        if(localStorage.getItem('token') != null && localStorage.getItem('token') != undefined){
             this.admin_ON(localStorage.getItem('token'))
             this.$router.push('/admin/historia')
             this.hidden_d_Navbar()
