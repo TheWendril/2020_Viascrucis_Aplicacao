@@ -38,12 +38,11 @@ export default {
 <style scoped>
 
 .banner{
+    
      background-image: url('../assets/bg-masthead.png');
      background-position: center;
      background-repeat: no-repeat;
-
      height: 650px;
-     filter: blur(0px);    
 
 }
 
