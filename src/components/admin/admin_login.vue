@@ -29,6 +29,7 @@
 
 import { mapMutations, mapState} from 'vuex'
 import Axios from 'axios'
+import api_url from '../../../APIPath'
 
 export default {
     
@@ -71,7 +72,7 @@ export default {
             
             if(this.check_form() == true){
 
-                Axios.post('http://localhost:3000/admin/login', this.login).then(res => {
+                Axios.post(api_url + '/admin/login', this.login).then(res => {
                     
                     this.admin_ON(res.data.token)
                     this.hidden_d_Navbar()

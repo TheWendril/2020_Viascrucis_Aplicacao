@@ -67,6 +67,7 @@
 
 import { mapMutations } from 'vuex'
 import Axios from 'axios'
+import api_url from '../../APIPath'
 import amplied_image from './amplied_image.vue'
 
 export default {
@@ -89,7 +90,7 @@ export default {
     
     increment_upvote: function(img){
       
-      Axios.put('http://localhost:3000/gallery', {_id: img._id}).then(res => {
+      Axios.put(api_url + '/gallery', {_id: img._id}).then(res => {
         console.log(res)
         img.views += 1
       })
@@ -110,7 +111,7 @@ export default {
   },
   created(){
 
-    Axios.get('http://localhost:3000/gallery').then(res => {
+    Axios.get(api_url + '/gallery').then(res => {
       
       this.imgs = res.data
       this.imgs.sort(function(a, b){ return b.views - a.views})

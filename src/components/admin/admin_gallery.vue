@@ -98,6 +98,7 @@
 
 import { mapMutations, mapState } from 'vuex'
 import Axios from 'axios'
+import api_url from '../../../APIPath'
 import amplied_image from '@/components/amplied_image.vue'
 
 export default {
@@ -131,7 +132,7 @@ export default {
             description: null
         }
 
-        Axios.get('http://localhost:3000/gallery').then(res => {
+        Axios.get(api_url + '/gallery').then(res => {
             this.imgs = res.data
         })
     },
@@ -158,7 +159,7 @@ export default {
                 multipart.append('description', this.new_img.description)
                 multipart.append('views', 0)
                 
-                Axios.post('http://localhost:3000/gallery', multipart).then(res => {
+                Axios.post(api_url + '/gallery', multipart).then(res => {
                     
                     console.log(res)
                     alert('Imagem enviada')
@@ -191,7 +192,7 @@ export default {
 
         delete_img: function(img){
 
-            Axios.delete('http://localhost:3000/gallery', {data: {_id: img._id, token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/gallery', {data: {_id: img._id, token: localStorage.getItem('token')}})
             .then(res => {
             
                 console.log(res)

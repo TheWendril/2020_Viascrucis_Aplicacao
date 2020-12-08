@@ -73,6 +73,7 @@
 
 import {mapMutations} from 'vuex'
 import Axios from 'axios'
+import api_url from '../../APIPath'
 
 export default {
 
@@ -84,7 +85,7 @@ export default {
 
     created(){
         this.enable(2)
-        Axios.get('http://localhost:3000/stories').then(res => {this.stories = res.data})
+        Axios.get(api_url + '/stories').then(res => {this.stories = res.data})
     },
 
     methods: {

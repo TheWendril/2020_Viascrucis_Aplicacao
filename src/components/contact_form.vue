@@ -63,6 +63,7 @@
 
 import {mapMutations} from  'vuex'
 import Axios from 'axios'
+import api_url from '../../APIPath'
 
 export default {
 
@@ -96,7 +97,7 @@ export default {
             this.check = true
 
             if(this.validate()){
-                Axios.post('http://localhost:3000/contact', this.form_contact).then( res => 
+                Axios.post(api_url + '/contact', this.form_contact).then( res => 
                 {
                     console.log(res)
                     alert('Mensagem Enviada com sucesso')

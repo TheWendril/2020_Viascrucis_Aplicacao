@@ -97,6 +97,7 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 import Axios from 'axios'
+import api_url from '../../../APIPath'
 
 export default {
 
@@ -117,7 +118,7 @@ export default {
             this.admin_ON(valid)
         
 
-        Axios.get('http://localhost:3000/adminStories').then(res => {
+        Axios.get(api_url + '/adminStories').then(res => {
             this.stories = res.data
         })
         .catch(err => console.log(err))
@@ -133,7 +134,7 @@ export default {
 
         aprove_story: function(story){
             
-            Axios.put('http://localhost:3000/adminStories', {_id: story._id, token: localStorage.getItem('token')})
+            Axios.put(api_url + '/adminStories', {_id: story._id, token: localStorage.getItem('token')})
                 .then(res => {
                     console.log(res)
                     alert('Historia Aprovada com Sucesso')})
@@ -149,7 +150,7 @@ export default {
 
         reprove_story: function(story){
         
-            Axios.delete('http://localhost:3000/adminStories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/adminStories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})

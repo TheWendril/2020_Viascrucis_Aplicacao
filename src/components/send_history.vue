@@ -217,6 +217,7 @@
 
 import { mapMutations } from 'vuex'
 import Axios from 'axios'
+import api_url from '../../APIPath'
 
 export default {
 
@@ -298,7 +299,7 @@ export default {
           this.json_request['approved'] = false
           this.json_request['epitafio'] = this.epitafio
           
-          Axios.post('http://localhost:3000/stories/', this.json_request)
+          Axios.post(api_url + '/stories/', this.json_request)
             
             .then(res => {
               
