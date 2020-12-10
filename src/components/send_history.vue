@@ -102,7 +102,7 @@
                       <div class="col-md-6 mb-3">
                       <label for="phone">Ano de falecimento</label>
                       <div class="input-group">
-                          <input type="text" :class="{'form-control': true, 'is-invalid': json_request.anoFalescimento == null && check}" id="phone"  v-model="json_request.anoFalescimento" placeholder="Ex: 2005" required>
+                          <input type="text" :class="{'form-control': true, 'is-invalid': json_request.anoFalecimento == null && check}" id="phone"  v-model="json_request.anoFalecimento" placeholder="Ex: 2005" required>
                           <div class="invalid-feedback" style="width: 100%;">
                             Campo obrigatório!
                           </div>
@@ -245,7 +245,7 @@ export default {
               degreeOfKinship: '',
               firstNameHonor: '',
               lastNameHonor: '',
-              anoFalescimento: null,
+              anoFalecimento: null,
               anoNascimento: null,
               textTribute: '',
               bornCity: '',

@@ -23,7 +23,7 @@
                 
                 <div class="row">
 
-                    <div class="col-md-8 col-sm-12 mb-3">
+                    <div class="col-md-9 col-sm-12 mb-3">
                         <b class="h4">{{story.firstName + ' ' +story.lastName}}</b> homenageou <b class="h4">{{story.firstNameHonor + ' ' +story.lastNameHonor}}</b> 
                         ({{story.anoNascimento}}  - {{story.anoNascimento + story.anoFalecimento}})
                     </div>
