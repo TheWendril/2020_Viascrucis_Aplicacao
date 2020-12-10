@@ -25,7 +25,7 @@
     <ul class="navbar-nav ml-auto">
       
       <li :class="{'nav-item': true, 'active': admin_active_items[0], 'mr-2': true}" @click="enable_admin(0)">
-        <a class="nav-link">23 clicks</a>
+        <a class="nav-link">{{clicks_book}} clicks</a>
       </li>
       <li class="nav-item" @click="go_to_home">
         <a class="nav-link">Pagina Inicial</a>
