@@ -263,7 +263,7 @@ export default {
                     alert('Falha ao Reprovar história')
                 })
 
-            this.stories.splice(this.all_stories.indexOf(story), this.all_stories.indexOf(story) + 1)
+            this.all_stories.splice(this.all_stories.indexOf(story), this.all_stories.indexOf(story) + 1)
         
         },
 
