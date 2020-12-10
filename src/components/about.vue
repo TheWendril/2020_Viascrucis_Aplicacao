@@ -33,7 +33,7 @@ export default {
 
     methods: {
         new_book_click: function(){
-            Axios.put(api_url + '/book', {new_click: 1}).then(res => {
+            Axios.put(api_url + '/book', {_id: "5fd189a48e38f233d9147330"}).then(res => {
                 console.log('Novo Click Registrado ', res)
             }
             ).catch(err => {
