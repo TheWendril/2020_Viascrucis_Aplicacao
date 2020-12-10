@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class="row d-flex flex-row-reverse mt-5">
-                    <button class="btn btn-outline-danger ml-2" @click="reprove_story(story)">Deletar</button>
+                    <button class="btn btn-outline-danger ml-2" @click="reprove_assert_story(story)">Deletar</button>
                 </div>
             </div>
         </div>
@@ -250,6 +250,20 @@ export default {
                 })
 
             this.stories.splice(this.stories.indexOf(story), this.stories.indexOf(story) + 1)
+        
+        },
+        reprove_assert_story: function(story){
+        
+            Axios.delete(api_url + '/stories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+                .then(res => {
+                    console.log(res)
+                    alert('Historia Reprovada com Sucesso')})
+                .catch(err => {
+                    console.log(err)
+                    alert('Falha ao Reprovar história')
+                })
+
+            this.stories.splice(this.all_stories.indexOf(story), this.all_stories.indexOf(story) + 1)
         
         },
 
