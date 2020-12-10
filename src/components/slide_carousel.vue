@@ -1,5 +1,5 @@
 <template>
-<div class="mb-5 container-fluid">
+<div class="mb-5 mt-5 pt-4 container-fluid">
     <div class="container carousel mt-5 mb-5 ">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner shadow ">

@@ -144,10 +144,10 @@ export default {
 }
 
 .g-img{
-  object-fit: none;
+  object-fit: cover;
   object-position: center;
-  height: 50%;
-  width: 75%;
+  height: 65%;
+  width: 80%;
   overflow: hidden;
   size: cover;
 }

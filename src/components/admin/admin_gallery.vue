@@ -166,7 +166,8 @@ export default {
                     this.$router.go()
 
                 }).catch(err => {
-                    console.log('deu ruim aqui irmao', err)
+                    console.log(err)
+                    alert('Erro ao enviar imagem')
                 })
             }
         
@@ -218,7 +219,7 @@ export default {
 }
 
 .g-img{
-  object-fit: none;
+  object-fit: cover;
   object-position: center;
   height: 50%;
   width: 75%;

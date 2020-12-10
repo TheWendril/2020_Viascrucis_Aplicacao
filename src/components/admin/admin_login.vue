@@ -53,9 +53,6 @@ export default {
 
         this.login = {user: null, password: null}
 
-
-        console.log(localStorage.getItem('token'))
-
         if(localStorage.getItem('token') != null && localStorage.getItem('token') != undefined){
             this.admin_ON(localStorage.getItem('token'))
             this.$router.push('/admin/historia')
@@ -79,11 +76,13 @@ export default {
                     this.$router.push('/admin/historia')
 
                 }).catch(e => {
+                    alert('Erro ao autenticar, verifique usuário/senha e tente novamente')
                     console.log(e)
+                    this.$router.go()
                 })
 
             }else{
-                console.log('foi que nao foi tropinha')
+                console.log('Erro ao autenticar')
             }
         },
         check_form: function(){

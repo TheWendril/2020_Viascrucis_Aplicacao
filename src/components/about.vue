@@ -17,7 +17,7 @@
                 <img class="rounded-circle mb-2 info-card" src="../assets/book.png">
                 <h3 class="mt-2 text-dark">Nosso Livro</h3>
                 <p>Nesse e-book gratuito, você vai encontrar uma excelente seleção de imagens e textos sobre as cruzes na beira da estrada . Você vai nos acompanhar na estrada, encontrando e conhecendo os variados tipos de memoriais que homenageiam os estradeiros falecidos.</p>
-                <p><a class="btn btn-primary" href="https://drive.google.com/file/d/1OIJSfl8-rAYZgWHe2atD7o5477PCBGLo/view?usp=sharing" target="_blank" role="button">Ler livro&raquo;</a></p>
+                <p><a class="btn btn-primary" @click="new_book_click" href="https://drive.google.com/file/d/1OIJSfl8-rAYZgWHe2atD7o5477PCBGLo/view?usp=sharing" target="_blank" role="button">Ler livro&raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
     </div>
@@ -25,7 +25,22 @@
 </template>
 
 <script>
+
+import Axios from 'axios'
+import api_url from '../../APIPath'
+
 export default {
+
+    methods: {
+        new_book_click: function(){
+            Axios.put(api_url + '/book', {new_click: 1}).then(res => {
+                console.log('Novo Click Registrado ', res)
+            }
+            ).catch(err => {
+                console.log(err)
+            })
+        }
+    }
     
 }
 </script>

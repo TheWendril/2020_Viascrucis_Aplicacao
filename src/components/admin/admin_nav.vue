@@ -9,6 +9,7 @@
     
     <ul class="navbar-nav">
 
+
       <li :class="{'nav-item': true, 'active': admin_active_items[0]}" @click="enable_admin(0)">
         <a class="nav-link" @click="go_to_admin_histories">Histórias</a>
       </li>
@@ -23,6 +24,9 @@
 
     <ul class="navbar-nav ml-auto">
       
+      <li :class="{'nav-item': true, 'active': admin_active_items[0], 'mr-2': true}" @click="enable_admin(0)">
+        <a class="nav-link">23 clicks</a>
+      </li>
       <li class="nav-item" @click="go_to_home">
         <a class="nav-link">Pagina Inicial</a>
       </li>
@@ -39,10 +43,27 @@
 
 
 <script>
-
+import Axios from 'axios'
 import {mapMutations, mapState} from 'vuex'
+import url_api from '../../../APIPath'
 
 export default {
+
+    data(){
+      return{
+        clicks_book: 0
+      }
+    },
+
+    created(){
+      Axios.get(url_api + '/book').then(res => {
+        console.log(res)
+        this.clicks_book = res.data.views
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    },
 
     methods: {
         ...mapMutations([
