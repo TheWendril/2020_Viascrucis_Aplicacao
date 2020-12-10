@@ -89,11 +89,11 @@
 
                   <div class="row">
                       <div class="col-md-6 mb-3">
-                      <label for="phone">Idade</label>
+                      <label for="phone">Ano de falecimento</label>
                       <div class="input-group">
-                          <input type="text" :class="{'form-control': true, 'is-invalid': json_request.idade == null && check}" id="phone"  v-model="json_request.idade" placeholder="Ex: 26" required>
+                          <input type="text" :class="{'form-control': true, 'is-invalid': json_request.anoFalescimento == null && check}" id="phone"  v-model="json_request.anoFalescimento" placeholder="Ex: 26" required>
                           <div class="invalid-feedback" style="width: 100%;">
-                          Campo obrigatório!
+                            Campo obrigatório!
                           </div>
                       </div>
                       </div>
@@ -244,7 +244,7 @@ export default {
               degreeOfKinship: '',
               firstNameHonor: '',
               lastNameHonor: '',
-              idade: null,
+              anoFalescimento: null,
               anoNascimento: null,
               textTribute: '',
               bornCity: '',

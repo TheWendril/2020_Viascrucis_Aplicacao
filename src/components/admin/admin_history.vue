@@ -46,7 +46,7 @@
                         <b>Sobrenome:</b> {{story.lastNameHonor}}
                     </div>
                     <div class="col">
-                        <b>Idade:</b> {{story.idade}}
+                        <b>Ano de falescimento:</b> {{story.anoFalescimento}}
                     </div>
                     <div class="col">
                         <b>Ano de nascimento:</b> {{story.anoNascimento}}
@@ -131,7 +131,7 @@
                         <b>Sobrenome:</b> {{story.lastNameHonor}}
                     </div>
                     <div class="col">
-                        <b>Idade:</b> {{story.idade}}
+                        <b>Ano de Falecimento:</b> {{story.anoFalescimento}}
                     </div>
                     <div class="col">
                         <b>Ano de nascimento:</b> {{story.anoNascimento}}

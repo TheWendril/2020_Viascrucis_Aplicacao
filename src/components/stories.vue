@@ -25,7 +25,7 @@
 
                     <div class="col-md-8 col-sm-12 mb-3">
                         <b class="h4">{{story.firstName + ' ' +story.lastName}}</b> homenageou <b class="h4">{{story.firstNameHonor + ' ' +story.lastNameHonor}}</b> 
-                        ({{story.anoNascimento}}  - {{story.anoNascimento + story.idade}})
+                        ({{story.anoNascimento}}  - {{story.anoNascimento + story.anoFalecimento}})
                     </div>
                     <div class="col-md-4 text-right">
                         <img src="https://i.ibb.co/yYGXzmp/relogio.png" height="20px" /><b class="ml-2 text-black-50">{{story.createdAt}}</b> 
