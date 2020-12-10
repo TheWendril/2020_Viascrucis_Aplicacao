@@ -224,7 +224,7 @@ export default {
 
         aprove_story: function(story){
             
-            Axios.put(api_url + '/stories/await', {_id: story._id, token: localStorage.getItem('token')})
+            Axios.put(api_url + '/stories', {_id: story._id, token: localStorage.getItem('token')})
                 .then(res => {
                     console.log(res)
                     alert('Historia Aprovada com Sucesso')})
@@ -240,7 +240,7 @@ export default {
 
         reprove_story: function(story){
         
-            Axios.delete(api_url + '/stories/await', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/stories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})
