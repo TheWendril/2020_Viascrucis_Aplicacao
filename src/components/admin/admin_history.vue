@@ -240,7 +240,7 @@ export default {
 
         reprove_story: function(story){
         
-            Axios.delete(api_url + '/stories', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}, {data: {_id: String(story._id)}})
+            Axios.delete(api_url + '/stories', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}, data: {_id: String(story._id)}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})
@@ -254,7 +254,7 @@ export default {
         },
         reprove_assert_story: function(story){
         
-            Axios.delete(api_url + '/stories', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}, {data: {_id: String(story._id)}})
+            Axios.delete(api_url + '/stories', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}, data: {_id: String(story._id)}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})
