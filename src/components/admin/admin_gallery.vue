@@ -193,7 +193,7 @@ export default {
 
         delete_img: function(img){
 
-            Axios.delete(api_url + '/gallery', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}, {data: {_id: img._id}})
+            Axios.delete(api_url + '/gallery', {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}, data: {_id: img._id}})
             .then(res => {
             
                 console.log(res)
