@@ -39,7 +39,7 @@ export default {
 
 .banner{
     
-     background-image: url('../assets/bg-masthead.jpg');
+     background-image: url('https://viascrucis.s3.amazonaws.com/bg-masthead.jpg');
      background-position: center;
      background-repeat: no-repeat;
      height: 650px;

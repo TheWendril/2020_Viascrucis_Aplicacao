@@ -2,7 +2,7 @@
 <div>
 
     <div class="container text-left">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-3 col-sm-2 col-md-2 col-lg-1 text-center">
             <img class="mt-1 img" src="https://i.ibb.co/Gdmq5yy/stories-icon.png" height="65px"/>
         </div>
@@ -17,7 +17,7 @@
     </div>
 
 
-    <div class="row shadow p-5 rounded-lg border mt-5" v-for="story in stories" :key="story._id">
+    <div class="row shadow p-5 rounded-lg border mb-5" v-for="story in stories" :key="story._id">
     
             <div class="col">
                 

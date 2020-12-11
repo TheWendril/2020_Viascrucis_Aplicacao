@@ -54,9 +54,21 @@ export default {
         this.login = {user: null, password: null}
 
         if(localStorage.getItem('token') != null && localStorage.getItem('token') != undefined){
-            this.admin_ON(localStorage.getItem('token'))
-            this.$router.push('/admin/historia')
-            this.hidden_d_Navbar()
+
+            Axios.put(api_url + '/admin', {}, {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}).then( res => {
+
+                this.admin_ON(localStorage.getItem('token'))
+                this.$router.push('/admin/historia')
+                this.hidden_d_Navbar()
+                console.log(res)
+
+            }).catch(err => {
+                
+                alert('Erro ao logar com token')
+                this.$router.go()
+                console.log(err)
+            
+            })
         }
 
     },
