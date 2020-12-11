@@ -132,7 +132,7 @@ export default {
             description: null
         }
 
-        Axios.get(api_url + '/gallery').then(res => {
+        Axios.get(api_url + '/gallery', {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}}).then(res => {
             this.imgs = res.data
         })
     },
@@ -159,7 +159,7 @@ export default {
                 multipart.append('description', this.new_img.description)
                 multipart.append('views', 0)
                 
-                Axios.post(api_url + '/gallery', multipart).then(res => {
+                Axios.post(api_url + '/gallery', multipart, {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}}).then(res => {
                     
                     console.log(res)
                     alert('Imagem enviada')
@@ -193,7 +193,7 @@ export default {
 
         delete_img: function(img){
 
-            Axios.delete(api_url + '/gallery', {data: {_id: img._id, token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/gallery', {data: {_id: img._id}}, {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}})
             .then(res => {
             
                 console.log(res)

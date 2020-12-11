@@ -201,13 +201,13 @@ export default {
             this.admin_ON(valid)
         
 
-        Axios.get(api_url + '/stories/await').then(res => {
+        Axios.get(api_url + '/stories/await', {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}}).then(res => {
             this.stories = res.data
         })
         .catch(err => console.log(err))
         
 
-        Axios.get(api_url + '/stories').then(res => {
+        Axios.get(api_url + '/stories', {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}}).then(res => {
             this.all_stories = res.data
         })
         .catch(err => console.log(err))
@@ -224,7 +224,7 @@ export default {
 
         aprove_story: function(story){
             
-            Axios.put(api_url + '/stories', {_id: story._id, token: localStorage.getItem('token')})
+            Axios.put(api_url + '/stories', {_id: story._id}, {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Aprovada com Sucesso')})
@@ -240,7 +240,7 @@ export default {
 
         reprove_story: function(story){
         
-            Axios.delete(api_url + '/stories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/stories', {data: {_id: String(story._id)}}, {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})
@@ -254,7 +254,7 @@ export default {
         },
         reprove_assert_story: function(story){
         
-            Axios.delete(api_url + '/stories', {data: {_id: String(story._id), token: localStorage.getItem('token')}})
+            Axios.delete(api_url + '/stories', {data: {_id: String(story._id)}}, {headers: {token: 'Bearer$ ' + localStorage.getItem('token')}})
                 .then(res => {
                     console.log(res)
                     alert('Historia Reprovada com Sucesso')})
