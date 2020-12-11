@@ -57,14 +57,17 @@ export default {
 
             Axios.put(api_url + '/admin', {}, {headers: {authorization: 'Bearer ' + localStorage.getItem('token')}}).then( res => {
 
-                this.admin_ON(localStorage.getItem('token'))
-                this.$router.push('/admin/historia')
-                this.hidden_d_Navbar()
-                console.log(res)
+                if(res.data.auth){
+                    this.admin_ON(localStorage.getItem('token'))
+                    this.$router.push('/admin/historia')
+                    this.hidden_d_Navbar()
+                    console.log(res)
+                }
 
             }).catch(err => {
                 
-                alert('Erro ao logar com token')
+                alert('Erro ao fazer auto login! Por favor, entre com seu email e senha.')
+                localStorage.removeItem('token')
                 this.$router.go()
                 console.log(err)
             
