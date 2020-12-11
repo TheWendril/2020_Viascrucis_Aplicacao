@@ -4,10 +4,18 @@
   <amplied_image @hiddenEvent="hidden_amplied_image" :font="atual_link_amplied" v-if="amplied"/>
   <div :class="{'container': true, 'hasblur': amplied}">
 
-    <div class="row">
-      <div class="col-md-10 col-sm-6">
-        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Galeria</h1>
-      </div>
+    <div class="row mb-5">
+        <div class="col-3 col-sm-2 col-md-2 col-lg-1 text-center">
+            <img class="mt-1 img" src="https://i.ibb.co/SRrvBVC/gallery-icon.png" height="65px"/>
+        </div>
+        <div class="col-sm-8 col-7 ml-1 text-left mt-1">
+            <div class="row">        
+                <h3>Galeria</h3>
+            </div>
+            <div class="row">
+                <h6 class="text-black-50">Nesta seção você encontrará todas os registro da nossa comunidade.</h6>
+            </div>
+        </div>
     </div>
 
     <hr class="mt-2 mb-5">
@@ -15,7 +23,12 @@
         <div class="text-left" v-if="imgs == 0">
             <h4 class="text-black-50">Sem imagens a mostrar!</h4>
         </div>
-    <div class="row text-center text-lg-left">
+    
+    <div class="spinner-border text-primary" role="status" v-if="loading">
+      <span class="sr-only">Carregando...</span>
+    </div>
+
+    <div class="row text-center text-lg-left" v-else>
 
          <div class="col-md-6 col-sm-12 mt-5" v-for="img in imgs" :key="img._id">
             <img :src="img.url" class="g-img" @click="show_amplied_image(img)"/>
@@ -81,7 +94,8 @@ export default {
       align_select: 'Data',
       amplied: false,
       atual_link_amplied: '',
-      imgs: []
+      imgs: [],
+      loading:   false
     }
   },
 
@@ -111,12 +125,18 @@ export default {
   },
   created(){
 
+    this.loading = true
+
     Axios.get(api_url + '/gallery').then(res => {
       
       this.imgs = res.data
       this.imgs.sort(function(a, b){ return b.views - a.views})
 
     })
+
+    setInterval(() => {
+        this.loading = false
+    }, 1100)
     
     this.enable(1)
   

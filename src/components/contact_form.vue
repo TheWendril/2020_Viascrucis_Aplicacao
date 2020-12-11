@@ -6,6 +6,10 @@
         <h2>Contato</h2>
         <h4>Informe os campos abaixo</h4>
       </div>
+    
+    <div class="spinner-border text-primary" v-if="loading" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 
     <form class="needs-validation" novalidate>    
        <div class="row">
@@ -70,7 +74,8 @@ export default {
     data(){
         return{
             form_contact : {},
-            check: false
+            check: false,
+            loading: false
         }
     },
 
@@ -97,16 +102,22 @@ export default {
             this.check = true
 
             if(this.validate()){
+
+                this.loading = true
+
                 Axios.post(api_url + '/contact', this.form_contact).then( res => 
                 {
                     console.log(res)
+                    this.loading = false
                     alert('Mensagem Enviada com sucesso')
                     this.$router.push('/')
                 }
                 ).catch(e => 
                 {
+                    this.loading = false
                     console.log(e)
                     alert('Erro no Envio da mensagem')
+                    this.$router.go()
                 })
             }
         },
